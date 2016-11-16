@@ -44,9 +44,9 @@ public class MypageController extends HttpServlet {
 			menuList.add("개인정보수정");
 			menuList.add("성적관리");
 			menuList.add("회원조회");
-			submenuList.add("mypage.do");
-			submenuList.add("teachlist");//강의리스트관리로 이동
-			submenuList.add("findUser.do");
+			submenuList.add("/HBLMS_6Class_4/mypage.do");
+			submenuList.add("/HBLMS_6Class_4/teacher/teachlist");//강의리스트관리로 이동
+			submenuList.add("/HBLMS_6Class_4/findUser.do");
 		}else if(lv==3){//영업팀
 			menuList.add("개인정보수정");
 			menuList.add("마케팅관리");

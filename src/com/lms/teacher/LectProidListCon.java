@@ -15,14 +15,17 @@ public class LectProidListCon extends HttpServlet{
 	private List<ProjectDto> lectprolist;
 	private SelectAllDao dao = null;
 	private String proid;
+	private String proname;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		proid = req.getParameter("proid");
+//		proid = req.getParameter("proid");
+		proname = req.getParameter("proname");
 		dao = new SelectAllDao();
 		try {
-			lectprolist=dao.LectproList(proid);
+//			lectprolist=dao.LectproList(proid);
+			lectprolist=dao.LectproList(proname);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,7 +33,7 @@ public class LectProidListCon extends HttpServlet{
 		
 		req.setAttribute("lectprolist", lectprolist);
 		req.setAttribute("proid", proid);
-		req.getRequestDispatcher("lectprolist.jsp").forward(req, resp);
+		req.getRequestDispatcher("./lectprolist.jsp").forward(req, resp);
 	}
 
 }

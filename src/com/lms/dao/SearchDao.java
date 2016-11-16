@@ -254,14 +254,14 @@ public class SearchDao {
 	}// 수강승인내검색
 
 	// 강사 강의 검색
-	public List<LectureDto> searLectOneTea(String op, String sel)
+	public List<LectureDto> searLectOneTea(String teacid, String op, String sel)
 			throws Exception {
 		// public List<LectureDto> searLectOneTea(String id,String op, String
 		// sel) {
 		// TODO Auto-generated method stub
 		List<LectureDto> list = new ArrayList<LectureDto>();
 		String selString = "\'%" + sel.trim() + "%\'";
-		String sql = "select classid,cname,division from class where cname like "
+		String sql = "select classid,cname,division from class where teacid=\'"+teacid.trim()+"\' and cname like "
 				+ selString;
 		/*
 		 * 통합검색 :0 강의종료 :1 강의중 :2

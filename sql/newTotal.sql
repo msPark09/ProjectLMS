@@ -67,6 +67,14 @@ create table prolist(
 	id varchar2(20),
 	PRIMARY KEY(proid)
 );
+create table test(
+testid varchar2(20),
+proname varchar2(50),
+id varchar2(20),
+classid varchar2(20),
+grade number(3),
+proid varchar2(20)
+);
 
 /*select*/
 select * from class;
@@ -76,6 +84,13 @@ select * from project;
 select * from prolist;
 select * from student;
 select * from userlist;
+select * from test;
+
+select * from (select A.proid, A.classid, A.proname, A.subname, A.proexp, A.proorin, A.proren, A.id, B.testid, B.grade from project A, test B where B.id = A.id) C inner join userlist D on C.id = D.id where C.proid='P006'
+
+select * from (select a.proid, a.classid, a.proname, a.subname, a.proexp, a.proorin, a.proren, a.id, b.testid, b.grade from PROJECT A, test B where a.PROID = b.proid) c inner join userlist d on c.id=d.id where c.proname='1차자유주제'
+
+select * from prolist where classid='C06'
 
 /*insert*/
 /*강의 아이디/강의 설명/시작날짜/강사아이디/강사이름/강의목표/강의정보
@@ -253,9 +268,17 @@ insert into project values('P004','C06','2차DB시험','DB시험','DB시험 너무 어렵습
 insert into project values('P005','C06','2차DB시험','DB시험재셤봐여','DB시험 너무 어렵습니다.',null,null,'stu2');
 insert into project values('P006','C07','자유주제 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu4');
 
+insert into project values('P007','C04','[과제]자유주제 구현하기','[강아지먹이주기알람]','강아지먹이주기알람을 java를 통해 만들었습니다.','Desktop.7z','Desktop.7z','stu1');
+insert into project values('P008','C04','[과제]자유주제 구현하기','채팅프로그램','소켓통신을 이용해 쌍방향 채팅 프로그램. 카카O톡을 모방하였습니다. 공부 위주','Desktop.7z','Desktop.7z','stu2');
+insert into project values('P009','C04','[과제]자유주제 구현하기','채팅프로그램','소켓통신을 이용해 쌍방향 채팅 프로그램. 카카O톡을 모방하였습니다. 공부 위주','Desktop.7z','Desktop.7z','stu3');
+insert into project values('P0010','C04','[과제]자유주제 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu4');
+insert into project values('P0011','C05','뭐든지 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu1');
+insert into project values('P0012','C05','뭐든지 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu2');
+insert into project values('P0013','C05','뭐든지 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu3');
+
 delete PROJECT where id='stu1'
-select * from project 
-select * from prolist where classid='C07'
+select * from class where statu=2 
+select * from prolist where classid='C04'
 /*C08*/
 /*프로젝트아이디, 수강생아이디, 강의아이디, 프로젝트 이름, 프로젝트 내용, 프로젝트 날짜, 강사명, 강사아이디*/
 insert into prolist values('P001','stu1','C06','1차자유주제','1차프로젝트 진행합니다. 여기다 제출하세요','16-10-15','최힘찬','teac3');
@@ -264,7 +287,29 @@ insert into prolist values('P003','stu3','C06','1차자유주제','1차프로젝트 진행합
 insert into prolist values('P004','stu1','C06','2차DB시험','2차DB시험 진행합니다. 여기다 제출하세요. 성적도 확인하세요.','16-11-01','최힘찬','teac3');
 insert into prolist values('P005','stu2','C06','2차DB시험','2차DB시험 진행합니다. 여기다 제출하세요. 성적도 확인하세요.','16-11-01','최힘찬','teac3');
 insert into prolist values('P006','stu4','C07','자유주제 구현하기','자유롭게 구현 후 제출 하세요','16-11-01','김영조','teac1');
+insert into prolist values('P007','stu1','C04','[과제]자유주제 구현하기','자유롭게 구현 후 제출 하세요','16-07-01','김영조','teac1');
+insert into prolist values('P008','stu2','C04','[과제]자유주제 구현하기','자유롭게 구현 후 제출 하세요','16-07-01','김영조','teac1');
+insert into prolist values('P009','stu3','C04','[과제]자유주제 구현하기','자유롭게 구현 후 제출 하세요','16-07-01','김영조','teac1');
+insert into prolist values('P0010','stu4','C04','[과제]자유주제 구현하기','자유롭게 구현 후 제출 하세요','16-07-01','김영조','teac1');
+insert into prolist values('P0011','stu1','C05','뭐든지 구현하기','자유롭게 구현 후 제출 하세요','16-08-01','최정웅','teac2');
+insert into prolist values('P0012','stu2','C05','뭐든지 구현하기','자유롭게 구현 후 제출 하세요','16-08-01','최정웅','teac2');
+insert into prolist values('P0013','stu3','C05','뭐든지 구현하기','자유롭게 구현 후 제출 하세요','16-08-01','최정웅','teac2');
 select * from prolist
+
+/*테스트아이디, 프로젝트 이름, 수강생 아이디, 강의 아이디, 성적,프로젝트아이디*/
+insert into test values('T001','1차자유주제','stu1','C06',80,'P001');
+insert into test values('T002','1차자유주제','stu2','C06',55,'P002');
+insert into test values('T003','1차자유주제','stu3','C06',83,'P003');
+insert into test values('T004','2차DB시험','stu1','C06',null,'P004');
+insert into test values('T005','2차DB시험','stu2','C06',null,'P005');
+insert into test values('T006','자유주제 구현하기','stu4','C07',92,'P006');
+insert into test values('T007','[과제]자유주제 구현하기','stu1','C04',53,'P007');
+insert into test values('T008','[과제]자유주제 구현하기','stu2','C04',88,'P008');
+insert into test values('T009','[과제]자유주제 구현하기','stu3','C04',88,'P009');
+insert into test values('T0010','[과제]자유주제 구현하기','stu4','C04',42,'P0010');
+insert into test values('T0011','뭐든지 구현하기','stu1','C05',68,'P0011');
+insert into test values('T0012','뭐든지 구현하기','stu2','C05',77,'P0012');
+insert into test values('T0013','뭐든지 구현하기','stu3','C05',74,'P0013');
 
 
 
@@ -277,3 +322,4 @@ drop table project;
 drop table prolist;
 drop table student;
 drop table userlist;
+drop table test;

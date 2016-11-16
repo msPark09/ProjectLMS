@@ -34,7 +34,7 @@ public class ProListCon extends HttpServlet{
 		
 		req.setAttribute("prolist", prolist);
 		req.setAttribute("classid", classid);
-		req.getRequestDispatcher("prolist.jsp").forward(req,resp);
+		req.getRequestDispatcher("./prolist.jsp").forward(req,resp);
 		
 	}
 

@@ -16,9 +16,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/grid.css" />
+<link rel="stylesheet" href="./../css/grid.css" />
 <title>한빛LMS</title>
-<script type="text/javascript" src="./js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="./../js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.main').addClass("grid10");//main부분의 그리드 잡기
@@ -131,16 +131,16 @@ text-decoration: none;
 </head>
 <body>
 	<div class="container">
-		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
+		<jsp:include page="./../template/header.jsp"></jsp:include>
+		<jsp:include page="./../template/menu.jsp"></jsp:include>
 
 		<div class="content row">
 			<div class="grid2 side">
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
+				<jsp:include page="./../template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
 			<div class="path">
-			<p><a href="./main">HOME</a> > <a href="./mypage">마이페이지</a> > 성적관리</p>
+			<p><a href="./../main">HOME</a> > <a href="./../mypage">마이페이지</a> > 성적관리</p>
 			</div>
 	<form action="./searchProT.do">
  <input type="text" id="classid" value="${classid}" hidden="hidden">
@@ -158,7 +158,7 @@ text-decoration: none;
 			<c:forEach items="${prolist}" var="bean">
 				<tr class="bean">
 				<td><%=++cnt%></td>
-					<td><a href="lectprolist?proid=${bean.proid}">${bean.proname}</a></td>
+					<td><a href="./lectprolist?proname=${bean.proname}">${bean.proname}</a></td>
 					<td>${bean.proday}</td>
 				</tr>
 			</c:forEach>
@@ -174,7 +174,7 @@ text-decoration: none;
 	</form>
 	</div>
 	</div>
-	<jsp:include page="/template/footer.jsp"></jsp:include>
+	<jsp:include page="./../template/footer.jsp"></jsp:include>
 	</div>
 	<!-- container end -->
 </body>

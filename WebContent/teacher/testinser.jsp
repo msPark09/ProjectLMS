@@ -18,9 +18,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/grid.css" />
+<link rel="stylesheet" href="./../css/grid.css" />
 <title>한빛LMS</title>
-<script type="text/javascript" src="./js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="./../js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.main').addClass("grid10");//main부분의 그리드 잡기
@@ -157,50 +157,50 @@ height: 30px;
 </head>
 <body>
 <div class="container">
-		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
+		<jsp:include page="./../template/header.jsp"></jsp:include>
+		<jsp:include page="./../template/menu.jsp"></jsp:include>
 
 		<div class="content row">
 			<div class="grid2 side">
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
+				<jsp:include page="./../template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
 			<div class="path">
-			<p><a href="./main">HOME</a> > <a href="./mypage">마이페이지</a> > 성적관리</p>
+			<p><a href="./../main">HOME</a> > <a href="./../mypage">마이페이지</a> > 성적관리</p>
 			</div>
     <form action="./gradeinsert">
 	<table>
 		<tr>
 			<th colspan="4">프로젝트 내용</th>
 		</tr>
-		<c:forEach items="${prodetaillist }" var="bean">
+		<!--<c:forEach items="${prodetaillist }" var="bean">-->
 			<tr class="title">
 			<td>제목</td>
-				<td>${bean.subname }</td>
+				<td>${dto.subname }</td>
 			<td>제출자</td>
-				<td>${bean.name }</td>
+				<td>${dto.name }</td>
 			</tr>
 			<tr class="exp">
 				<td colspan="4">내용</td>
 			</tr>
 			<tr class="expsub">
-				<td colspan="4">${bean.proexp}</td>
+				<td colspan="4">${dto.proexp}</td>
 			</tr>
 			<tr class="file">
 				<td>파일명</td>
-				<td colspan="3"><a target="_self" href="download.jsp?filename=${bean.proorin }">${bean.proorin }</a></td>
+				<td colspan="3"><a target="_self" href="./../download.jsp?filename=${dto.proorin }">${dto.proorin }</a></td>
 			</tr>
 		<tr class="gradeP">
 			<td rowspan="2">성적</td>
-			<c:if test="${bean.grade eq 0 }">
+			<c:if test="${dto.grade eq 0 }">
 			<td colspan="3"><input type="text" name="grade" id="grade"></td>
 			</c:if>
-			<c:if test="${bean.grade ne 0 }"><!-- empty가 아닌걸로 -->
-			<td colspan="3"><input type="text" name="grade" id="grade" value="${bean.grade }"></td>
+			<c:if test="${dto.grade ne 0 }"><!-- empty가 아닌걸로 -->
+			<td colspan="3"><input type="text" name="grade" id="grade" value="${dto.grade }"></td>
 			</c:if>
 		</tr>
-		<input type="text" name="testid" id="testid" value="${bean.testid}"  hidden="hidden">
-		<input type="text" name="id" id="id" value="${bean.id}"  hidden="hidden">
+		<input type="text" name="testid" id="testid" value="${dto.testid}"  hidden="hidden">
+		<input type="text" name="id" id="id" value="${dto.id}"  hidden="hidden">
 		<input type="text" name="proid" id="proid" value="${proid}"  hidden="hidden">
 		</c:forEach>
 		<tr class="okBtn">
@@ -212,7 +212,7 @@ height: 30px;
 	</form>
 	</div>
 	</div>
-	<jsp:include page="/template/footer.jsp"></jsp:include>
+	<jsp:include page="./../template/footer.jsp"></jsp:include>
 	</div>
 	<!-- container end -->
 </body>

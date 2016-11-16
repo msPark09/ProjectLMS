@@ -30,7 +30,7 @@ public class TeaStuListCon extends HttpServlet{
 		
 		req.setAttribute("teastulist", list);
 		req.setAttribute("classid", classid);
-		req.getRequestDispatcher("teastulist.jsp").forward(req, resp);
+		req.getRequestDispatcher("./teastulist.jsp").forward(req, resp);
 	}
 	
 

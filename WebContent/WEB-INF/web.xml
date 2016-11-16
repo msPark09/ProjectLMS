@@ -202,7 +202,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>teachlist</servlet-name>
-		<url-pattern>/teachlist</url-pattern>
+		<url-pattern>/teacher/teachlist</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searchLectT</servlet-name>
@@ -210,7 +210,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searchLectT</servlet-name>
-		<url-pattern>/searchLecT.do</url-pattern>
+		<url-pattern>/teacher/searchLecT.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>teachstulist</servlet-name>
@@ -218,7 +218,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>teachstulist</servlet-name>
-		<url-pattern>/teachstulist</url-pattern>
+		<url-pattern>/teacher/teachstulist</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searStuT</servlet-name>
@@ -226,7 +226,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searStuT</servlet-name>
-		<url-pattern>/searchStuT.do</url-pattern>
+		<url-pattern>/teacher/searchStuT.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>projectlist</servlet-name>
@@ -234,7 +234,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>projectlist</servlet-name>
-		<url-pattern>/projectlist</url-pattern>
+		<url-pattern>/teacher/projectlist</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searProT</servlet-name>
@@ -242,7 +242,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searProT</servlet-name>
-		<url-pattern>/searchProT.do</url-pattern>
+		<url-pattern>/teacher/searchProT.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>lectprolist</servlet-name>
@@ -250,7 +250,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>lectprolist</servlet-name>
-		<url-pattern>/lectprolist</url-pattern>
+		<url-pattern>/teacher/lectprolist</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searLPT</servlet-name>
@@ -258,7 +258,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searLPT</servlet-name>
-		<url-pattern>/SearchLP.do</url-pattern>
+		<url-pattern>/teacher/SearchLP.do</url-pattern>
 	</servlet-mapping>
 	<!-- 수정 -->
 	<servlet>
@@ -267,7 +267,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>detailinsert</servlet-name>
-		<url-pattern>/detailinsert</url-pattern>
+		<url-pattern>/teacher/detailinsert</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>gradeinsert</servlet-name>
@@ -275,7 +275,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>gradeinsert</servlet-name>
-		<url-pattern>/gradeinsert</url-pattern>
+		<url-pattern>/teacher/gradeinsert</url-pattern>
 	</servlet-mapping>
 	<!-- 수정 -->
 	<servlet>

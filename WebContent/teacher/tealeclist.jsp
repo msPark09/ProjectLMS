@@ -15,9 +15,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/grid.css" />
+<link rel="stylesheet" href="./../css/grid.css" />
 <title>한빛LMS</title>
-<script type="text/javascript" src="./js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="./../js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.main').addClass("grid10");//main부분의 그리드 잡기
@@ -28,43 +28,32 @@ $(document).ready(function(){
 		$(this).css('backgroundColor', '#ffffff');
 	});
 	
-	$('.noneView').css('display','none');
-	$('#nonGrade').on('click',function(){
-		//alert("button click");
-		$('.bean').css('display','none');
-		$('.noneView').css('display','table-row');
-		return false;
-	});
-	//성적 미입력자
-	
-	//검색
 	$('form').submit(function() {
 		var url = $(this).attr('action');
 		var sel = $('#sel').val();
 		var op = $('#op').val();
-		var proid=$('#proid').val();
+		
 		var target = $('table');
-		var param = {'sel':sel, 'op':op, 'proid':proid};
+		var param = {'sel':sel, 'op':op};
 		$.ajax({
 				'url':url,
 				'data':param,
 				'error' : function(jqXHR, textStatus) {
 					alert("통신실패 " + textStatus + "(code): "	+ jqXHR.status);},
 				'success' : function(data, textStatus,jqXHR) {	
-					target.html("<table><tr><th>제출명</th><th>이름</th><th>성적</th></tr>");
+					target.html("<table><tr><th>강의명</th><th></th><th>구분</th></tr>");
 					data = data.replace(/\+/gi,'%20');
 					data = decodeURIComponent(data);
 					target.append(data);
 					target.append("</table>");
 					}
 			});
-		$('#nonGrade').css('display','none');
 			return false;
 		});
+	
 });
 </script>
 <style type="text/css">
-
 div {
 	text-align: center;
 }
@@ -90,13 +79,13 @@ border-bottom: 2px red solid;
 }
 
 table td:nth-child(1){
-width:55%;
+width:45%;
 }
 table td:nth-child(2){
-width:25%;
+width:30%;
 }
 table td:nth-child(3){
-width:20%;
+width:25%;
 }
 .jobimg{
 margin-top: 10px;
@@ -137,69 +126,55 @@ text-decoration: none;
 	display: none;
 	}
 }
+
 </style>
 </head>
 <body>
-<div class="container">
-		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
+	<div class="container">
+		<jsp:include page="./../template/header.jsp"></jsp:include>
+		<jsp:include page="./../template/menu.jsp"></jsp:include>
 
 		<div class="content row">
 			<div class="grid2 side">
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
+				<jsp:include page="./../template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
 			<div class="path">
-			<p><a href="./main">HOME</a> > <a href="./mypage">마이페이지</a> > 성적관리</p>
+			<p><a href="./../main">HOME</a> > <a href="./../mypage">마이페이지</a> > 성적관리</p>
 			</div>
-	<form action="./SearchLP.do">
-	 <input type="text" id="proid" value="${proid}" hidden="hidden">
-	<table>
-		<tr>
-			<th>제출명</th>
-			<th>이름</th>
-			<th>성적</th>
-		</tr>
-		<c:if test="${empty lectprolist}">
+		<form action="./searchLecT.do">
+		<table>
 			<tr>
-				<td colspan="3">제출된 프로젝트 내역이 없습니다</td>
+				<th>강의명</th>
+				<th></th>
+				<th>구분</th>
 			</tr>
-		</c:if>
-		<c:forEach items="${lectprolist }" var="bean">
-			<tr class="bean">
-				<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">${bean.subname}</a></td>
-				<td>${bean.name}</td>
-				<c:if test="${bean.grade eq 0}">
-					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">입력</a></td>
-				</c:if>
-				<c:if test="${bean.grade ne 0}">
-					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">${bean.grade}</a></td>
-				</c:if>
-			</tr>
-			<c:if test="${bean.grade eq 0}">
-					<tr class="noneView">
-					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">${bean.subname}</a></td>
-					<td>${bean.name}</td>
-					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">입력</a></td>					
-					</tr>
-			</c:if>	
-		</c:forEach>
-	</table>
-	<p>
-		<a href="#">1</a>
-	</p>
-		<button id="nonGrade">성적미입력자</button>
-	<select name="op" id="op">
-		<option value="0">제목</option>
-		<option value="1">이름</option>
-		<option value="2">성적</option>
-	</select>
-	<input type="text" id="sel" name="sel" />
-	<button type="submit">검 색</button>
+			<c:if test="${empty alist }">
+				<tr>
+					<td colspan="3">강의 내역이 없습니다.</td>
+				</tr>
+			</c:if>
+			<c:forEach items="${alist }" var="bean">
+				<tr class="bean">
+					<td><a href="./projectlist?classid=${bean.classid}">${bean.cname}</a></td>
+					<td><a href="./teachstulist?classid=${bean.classid}">수강학생확인</a></td>
+					<td>${bean.division}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<p>
+			<a href="#">1</a>
+		</p>
+		<select name="op" id="op">
+			<option value="0">통합검색</option>
+			<option value="1">수강종료</option>
+			<option value="2">수강중</option>
+		</select> <input type="text" id="sel" name="sel" />
+		<button type="submit">검 색</button>
 	</form>
 	</div>
 	</div>
-	<jsp:include page="/template/footer.jsp"></jsp:include>
+	<jsp:include page="./../template/footer.jsp"></jsp:include>
 	</div>
 	<!-- container end -->
 </body>

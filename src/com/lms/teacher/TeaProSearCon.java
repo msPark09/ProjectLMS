@@ -43,7 +43,7 @@ public class TeaProSearCon extends HttpServlet {
 			for (ProlistDto bean : list) {
 				data += "<tr class=\"bean\">"
 						+"<td>"+(++cnt)+"</td>"
-						+ "<td><a href=\"lectprolist?proid="+bean.getProid()+"\">"+bean.getProname()+"</td>"
+						+ "<td><a href=\"./lectprolist?proid="+bean.getProid()+"\">"+bean.getProname()+"</td>"
 						+ "<td>"+bean.getProday()+"</td></tr>";
 			}
 		} else {

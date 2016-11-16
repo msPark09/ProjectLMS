@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.lms.dao.SearchDao;
 import com.lms.dto.LectureDto;
@@ -23,6 +24,7 @@ public class TeaLectSearCon extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		String op = request.getParameter("op").trim();
 		String sel = request.getParameter("sel").trim();
 		System.out.println("op : "+op+" sel : "+sel);
@@ -31,7 +33,7 @@ public class TeaLectSearCon extends HttpServlet {
 		list = new ArrayList<LectureDto>();
 		// list = dao.searLectOneTea(id,op,sel);
 		try {
-			list = dao.searLectOneTea(op, sel);
+			list = dao.searLectOneTea((String)session.getAttribute("id"),op, sel);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,9 +42,9 @@ public class TeaLectSearCon extends HttpServlet {
 		if (list.size() > 0) {
 			for (LectureDto bean : list) {
 				data += "<tr class=\"bean\">"
-						+ "<td><a href=\"projectlist?classid=" + bean.getClassid()
+						+ "<td><a href=\"./projectlist?classid=" + bean.getClassid()
 						+ "\">" + bean.getCname() + "</a></td>"
-						+ "<td><a href=\"teachstulist?classid=" + bean.getClassid()
+						+ "<td><a href=\"./teachstulist?classid=" + bean.getClassid()
 						+ "\">수강학생확인</a></td>" + "<td>" + bean.getDivision()
 						+ "</td></tr>";
 			}

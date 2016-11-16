@@ -168,8 +168,10 @@ public class DetailDao {
 		}//마이페이지 자신 info
 	
 	//과제 상세페이지
-	 public List<ProjectDto> TeaProDetail(String proid, String id) throws Exception {
-		   List<ProjectDto> teaprodetail = new ArrayList<ProjectDto>();
+//	 public List<ProjectDto> TeaProDetail(String proid, String id) throws Exception {
+		 public ProjectDto TeaProDetail(String proid, String id) throws Exception {
+//		   List<ProjectDto> teaprodetail = new ArrayList<ProjectDto>();
+		 ProjectDto dto = null;
 		   String sql = "select C.testid, C.proid, C.subname, D.name, C.proexp, C.proorin, D.name, C.id, C.grade from "
 				   +"(select A.proid as proid, A.subname as subname, A.proexp as proexp, "
 				   +"A.proorin as proorin, A.id as id, B.grade as grade, B.testid as testid from project A, test B "
@@ -178,12 +180,12 @@ public class DetailDao {
 			try {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					teaprodetail.add( new ProjectDto(rs.getString("proid"),
+				if (rs.next()) {
+					dto = new ProjectDto(rs.getString("proid"),
 							rs.getString("subname"),
 							rs.getString("proexp"),rs.getString("proorin")
 						  ,rs.getString("id"),rs.getString("name"),
-						  rs.getString("testid"),rs.getInt("grade")));
+						  rs.getString("testid"),rs.getInt("grade"));
 //					System.out.println(teaprodetail.get(0).toString());
 				}
 			} finally {
@@ -194,7 +196,8 @@ public class DetailDao {
 				if(conn != null)
 					conn.close();
 			}
-		   return teaprodetail;   
+//		   return teaprodetail;   
+		   return dto;   
 	   }
 		
 	//프로젝트 내용

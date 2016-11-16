@@ -17,6 +17,7 @@ public class TestDetailPage extends HttpServlet{
 	private DetailDao dao;
 	private String id;
 	private String proid;
+	private ProjectDto dto;
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,19 +26,22 @@ public class TestDetailPage extends HttpServlet{
 		proid = request.getParameter("proid");
 		System.out.println("id : "+id+ " proid : "+proid);
 
-		list = new ArrayList<ProjectDto>();
+//		list = new ArrayList<ProjectDto>();
 		dao = new DetailDao();
+		
 		try {
-			list = dao.TeaProDetail(proid,id);
+//			list = dao.TeaProDetail(proid,id);
+			dto = dao.TeaProDetail(proid,id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("prodetaillist", list);
+//		request.setAttribute("prodetaillist", list);
+		request.setAttribute("dto", dto);
 		request.setAttribute("proid", proid);
 		System.out.println(proid);
-		request.getRequestDispatcher("testinser.jsp").forward(request,
+		request.getRequestDispatcher("./testinser.jsp").forward(request,
 				response);
 	}
 	
