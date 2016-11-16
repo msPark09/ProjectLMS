@@ -14,6 +14,8 @@ create table class(
 	cfname varchar2(50),
 	priority number(5)
  );
+ alter table class modify(cname varchar2(100))
+
  create table userlist(
  	id varchar2(12),
  	pw varchar2(20),
@@ -53,6 +55,7 @@ proorin varchar2(20),
 proren varchar2(20),
 id varchar2(20)
 );
+alter table project modify(proexp varchar2(300))
 create table prolist(
 	proid varchar2(12),
 	stuid varchar2(12),
@@ -78,7 +81,192 @@ select * from userlist;
 /*강의 아이디/강의 설명/시작날짜/강사아이디/강사이름/강의목표/강의정보
   /강의이름/구분(수강중,수강종료,모집중)/상태(1,2,0)/강의총일수
  /강의파일이름/우선순위*/
-insert into class values('');
+insert into class values('C01','클래스01','','teac1','김영조','웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의','웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의'
+,'HTML5를 이용한 웹','모집중',0,180,null,1);
+insert into class values('C02','클래스02','','teac2','최정웅','자바에 의한 자바를 위한 자바의 강의','자바를 쉽고 재미있게 배우고 실무까지 책임지겠습니다. 빠샤빠샤 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의'
+,'JAVA 프로그래밍','모집중',0,200,null,2);
+insert into class values('C03','클래스03','','teac3','최힘찬','프레임워크를 쉽고 재미있게 배우고 실무까지 책임지는 강의','프레임워크 뽀개기 모든 프레임워크를 배웁니다. 실무까지 책임지는 강의'
+,'쉬운 Framework','모집중',0,180,null,3);
+update class set startday='16-12-10' where classid='C01';
+update class set startday='16-12-01' where classid='C02';
+update class set startday='17-01-15' where classid='C03';
+insert into class values('C04','클래스04','16-05-15','teac1','김영조','윈도우를 쉽고 재미있게 배우고 실무까지 책임지는 강의','운영체제 뽀개기 모든 프레임워크를 배웁니다. 실무까지 책임지는 강의'
+,'OS의 Windows','수강종료',2,30,null,4);
+insert into class values('C05','클래스05','16-07-01','teac2','최정웅','java를 쉽고 재미있게 배우고 실무까지 책임지는 강의','자바를 쉽고 재미있게 배우고 실무까지 책임지겠습니다. 빠샤빠샤 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의'
+,'JAVA 프로그래밍','수강종료',2,60,null,5);
+insert into class values('C06','클래스06','16-10-01','teac3','최힘찬','프레임워크를 쉽고 재미있게 배우고 실무까지 책임지는 강의','프레임워크 뽀개기 모든 프레임워크를 배웁니다. 실무까지 책임지는 강의'
+,'Framework를 배우자!','수강중',1,90,null,6);
+insert into class values('C07','클래스07','16-10-01','teac1','김영조','자바에 의한 자바를 위한 자바의 강의','자바를 쉽고 재미있게 배우고 실무까지 책임지겠습니다. 빠샤빠샤 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의'
+,'JAVA 프로그래밍','수강중',1,180,null,7);
+insert into class values('C08','클래스08','16-10-15','teac2','최정웅','웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의','웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의웹을 쉽고 재미있게 배우고 실무까지 책임지는 강의'
+,'Spring 뽀개기','수강중',1,180,null,8);
+
+
+/*아이디/비밀번호/구분(학생1,강사2,영업팀3,행정팀4)/이름/전화번호/주소/email*/
+insert into userlist values('teac1','pw2',2,'김영조','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('teac2','pw2',2,'최정웅','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('teac3','pw2',2,'최힘찬','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu1','pw1',1,'박미선','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu2','pw1',1,'최힘찬','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu3','pw1',1,'최정웅','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu4','pw1',1,'임경영','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('sys1','pw3',3,'최유정','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('admin1','pw4',4,'송승호','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('comp1','pw5',5,'서월성','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('comp2','pw5',5,'황보현','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+
+
+/*리스트아이디/회사아이디/제목/설명/싸이트/파일이름 */
+insert into joblist values('jList_comp1', 
+'comp1',
+'○○너스 웹 개발자 구인',
+'안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
+채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
+신중하게 알아보시고 입사지원을 희망하시는 학생들은 말씀해 주시기 바랍니다.<br/>
+기업으로 이메일을 통해, 입사를 희망하시는 학생들의 이력서와 자기소개서를 보낼 예정입니다.<br/>
+작성 예) 이름 / 과정 수료일 / 면접 가능일 / 홈페이지상 해당채용정보 글번호 기재요망<br/>
+* 첨부파일 (이력서,자기소개서,프로젝트나 경력기술서)<br/>
+- 취업지원절차 -<br/>
+1. 이력서 작성&접수<br/>
+2. 이력서 클리닉(이력서 작성 비결 제공 및 지도)<br/>
+3. 취업전략(1:1 맞춤상담)<br/>
+4. 면접클리닉(면접 비결 제공 및 면접 지도)<br/>
+5. 취업처 선별& 추천<br/>
+6. 취업',
+'www.hanbitedu.co.kr',
+'이력서.docx'
+);
+insert into joblist values('jList_comp2', 
+'comp2',
+'앱 개발자 구합니다!',
+'안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
+채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
+신중하게 알아보시고 입사지원을 희망하시는 학생들은 말씀해 주시기 바랍니다.<br/>
+기업으로 이메일을 통해, 입사를 희망하시는 학생들의 이력서와 자기소개서를 보낼 예정입니다.<br/>
+작성 예) 이름 / 과정 수료일 / 면접 가능일 / 홈페이지상 해당채용정보 글번호 기재요망<br/>
+* 첨부파일 (이력서,자기소개서,프로젝트나 경력기술서)<br/>
+- 취업지원절차 -<br/>
+1. 이력서 작성&접수<br/>
+2. 이력서 클리닉(이력서 작성 비결 제공 및 지도)<br/>
+3. 취업전략(1:1 맞춤상담)<br/>
+4. 면접클리닉(면접 비결 제공 및 면접 지도)<br/>
+5. 취업처 선별& 추천<br/>
+6. 취업',
+'www.hanbitedu.co.kr',
+'이력서2.docx'
+);
+insert into joblist values('jList_comp3', 
+'comp2',
+'[구인구직]인재를 채용합니다.',
+'안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
+채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
+신중하게 알아보시고 입사지원을 희망하시는 학생들은 말씀해 주시기 바랍니다.<br/>
+기업으로 이메일을 통해, 입사를 희망하시는 학생들의 이력서와 자기소개서를 보낼 예정입니다.<br/>
+작성 예) 이름 / 과정 수료일 / 면접 가능일 / 홈페이지상 해당채용정보 글번호 기재요망<br/>
+* 첨부파일 (이력서,자기소개서,프로젝트나 경력기술서)<br/>
+- 취업지원절차 -<br/>
+1. 이력서 작성&접수<br/>
+2. 이력서 클리닉(이력서 작성 비결 제공 및 지도)<br/>
+3. 취업전략(1:1 맞춤상담)<br/>
+4. 면접클리닉(면접 비결 제공 및 면접 지도)<br/>
+5. 취업처 선별& 추천<br/>
+6. 취업',
+'www.hanbitedu.co.kr',
+'test.txt'
+);
+insert into joblist values('jList_comp4', 
+'comp1',
+'급) NHSystems(자)농협) 공개채용',
+'안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
+채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
+신중하게 알아보시고 입사지원을 희망하시는 학생들은 말씀해 주시기 바랍니다.<br/>
+기업으로 이메일을 통해, 입사를 희망하시는 학생들의 이력서와 자기소개서를 보낼 예정입니다.<br/>
+작성 예) 이름 / 과정 수료일 / 면접 가능일 / 홈페이지상 해당채용정보 글번호 기재요망<br/>
+* 첨부파일 (이력서,자기소개서,프로젝트나 경력기술서)<br/>
+- 취업지원절차 -<br/>
+1. 이력서 작성&접수<br/>
+2. 이력서 클리닉(이력서 작성 비결 제공 및 지도)<br/>
+3. 취업전략(1:1 맞춤상담)<br/>
+4. 면접클리닉(면접 비결 제공 및 면접 지도)<br/>
+5. 취업처 선별& 추천<br/>
+6. 취업',
+'www.hanbitedu.co.kr',
+'이력서2.docx'
+);
+insert into joblist values('jList_comp5', 
+'comp2',
+'안녕하세요. 인재 희망합니다',
+'안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
+채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
+신중하게 알아보시고 입사지원을 희망하시는 학생들은 말씀해 주시기 바랍니다.<br/>
+기업으로 이메일을 통해, 입사를 희망하시는 학생들의 이력서와 자기소개서를 보낼 예정입니다.<br/>
+작성 예) 이름 / 과정 수료일 / 면접 가능일 / 홈페이지상 해당채용정보 글번호 기재요망<br/>
+* 첨부파일 (이력서,자기소개서,프로젝트나 경력기술서)<br/>
+- 취업지원절차 -<br/>
+1. 이력서 작성&접수<br/>
+2. 이력서 클리닉(이력서 작성 비결 제공 및 지도)<br/>
+3. 취업전략(1:1 맞춤상담)<br/>
+4. 면접클리닉(면접 비결 제공 및 면접 지도)<br/>
+5. 취업처 선별& 추천<br/>
+6. 취업',
+'www.hanbitedu.co.kr',
+'이력서.docx'
+);
+
+select * from class where statu=1;
+select * from class where statu=2;
+/*수강생아이디/강의아이디/출석일수 */
+insert into student values('stu1','C06',35);
+insert into student values('stu2','C06',46);
+insert into student values('stu3','C06',46);
+insert into student values('stu4','C07',46);
+insert into student values('stu1','C04',30);
+insert into student values('stu2','C04',30);
+insert into student values('stu3','C04',10);
+insert into student values('stu4','C04',20);
+insert into student values('stu1','C05',60);
+insert into student values('stu2','C05',25);
+insert into student values('stu3','C05',60);
+
+insert into userlist values('stu1','pw1',1,'박미선','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu2','pw1',1,'최힘찬','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu3','pw1',1,'최정웅','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+insert into userlist values('stu4','pw1',1,'임경영','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
+select * from class where statu=0
+/*승인아이디/수강생아이디/수강생이름/강의아이디/승인여부(승인1 미승인0) */
+insert into agreed values('Agr01','stu1','박미선','C01',0);
+insert into agreed values('Agr02','stu1','박미선','C02',0);
+insert into agreed values('Agr03','stu1','박미선','C03',0);
+insert into agreed values('Agr06','stu4','임경영','C03',1);
+insert into student values('stu4','C03',0);
+insert into agreed values('Agr04','stu2','최힘찬','C01',1);
+insert into student values('stu2','C01',0);
+insert into agreed values('Agr05','stu3','최정웅','C01',0);
+insert into agreed values('Agr07','stu4','임경영','C01',1);
+insert into student values('stu4','C01',0);
+
+/*프로젝트 아이디, 강의 아이디, 프로젝트 이름, 제출한 이름, 제출 내용, 오리지널 파일이름, re파일이름, 수강생아이디*/
+insert into project values('P001','C06','1차자유주제','[강아지먹이주기알람]','강아지먹이주기알람을 java를 통해 만들었습니다.','Desktop.7z','Desktop.7z','stu1');
+insert into project values('P002','C06','1차자유주제','채팅프로그램','소켓통신을 이용해 쌍방향 채팅 프로그램. 카카O톡을 모방하였습니다. 공부 위주','Desktop.7z','Desktop.7z','stu2');
+insert into project values('P003','C06','1차자유주제','채팅프로그램','소켓통신을 이용해 쌍방향 채팅 프로그램. 카카O톡을 모방하였습니다. 공부 위주','Desktop.7z','Desktop.7z','stu3');
+insert into project values('P004','C06','2차DB시험','DB시험','DB시험 너무 어렵습니다.',null,null,'stu1');
+insert into project values('P005','C06','2차DB시험','DB시험재셤봐여','DB시험 너무 어렵습니다.',null,null,'stu2');
+insert into project values('P006','C07','자유주제 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu4');
+
+delete PROJECT where id='stu1'
+select * from project 
+select * from prolist where classid='C07'
+/*C08*/
+/*프로젝트아이디, 수강생아이디, 강의아이디, 프로젝트 이름, 프로젝트 내용, 프로젝트 날짜, 강사명, 강사아이디*/
+insert into prolist values('P001','stu1','C06','1차자유주제','1차프로젝트 진행합니다. 여기다 제출하세요','16-10-15','최힘찬','teac3');
+insert into prolist values('P002','stu2','C06','1차자유주제','1차프로젝트 진행합니다. 여기다 제출하세요','16-10-15','최힘찬','teac3');
+insert into prolist values('P003','stu3','C06','1차자유주제','1차프로젝트 진행합니다. 여기다 제출하세요','16-10-15','최힘찬','teac3');
+insert into prolist values('P004','stu1','C06','2차DB시험','2차DB시험 진행합니다. 여기다 제출하세요. 성적도 확인하세요.','16-11-01','최힘찬','teac3');
+insert into prolist values('P005','stu2','C06','2차DB시험','2차DB시험 진행합니다. 여기다 제출하세요. 성적도 확인하세요.','16-11-01','최힘찬','teac3');
+insert into prolist values('P006','stu4','C07','자유주제 구현하기','자유롭게 구현 후 제출 하세요','16-11-01','김영조','teac1');
+select * from prolist
+
+
 
 
 /*drop*/

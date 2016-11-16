@@ -186,7 +186,7 @@ insert into joblist values('jList_comp2',
 '이력서2.docx'
 );
 insert into joblist values('jList_comp3', 
-'comp3',
+'comp2',
 '[구인구직]인재를 채용합니다.',
 '안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
 채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
@@ -205,7 +205,7 @@ insert into joblist values('jList_comp3',
 'test.txt'
 );
 insert into joblist values('jList_comp4', 
-'comp4',
+'comp1',
 '급) NHSystems(자)농협) 공개채용',
 '안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
 채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
@@ -224,7 +224,7 @@ insert into joblist values('jList_comp4',
 '이력서2.docx'
 );
 insert into joblist values('jList_comp5', 
-'comp5',
+'comp2',
 '안녕하세요. 인재 희망합니다',
 '안녕하세요! 한빛교육센터 취업지원팀 이경진 대리입니다.<br/>
 채용공고 확인 후 회사에 대해서(*직무내용,인재상,고용형태, 근무예정지,급여수준,근무시간,사원수등)
