@@ -59,10 +59,10 @@ public class MypageController extends HttpServlet {
 			menuList.add("수강생정보확인");
 			menuList.add("수강신청확인");
 			menuList.add("회원조회");
-			submenuList.add("mypage.do");
-			submenuList.add("admlectlist");//수강생리스트로 이동
-			submenuList.add("agreedlist");//수강신청확인으로 이동
-			submenuList.add("findUser.do");
+			submenuList.add("/HBLMS_6Class_4/mypage.do");
+			submenuList.add("/HBLMS_6Class_4/admin/admlectlist");//수강생리스트로 이동
+			submenuList.add("/HBLMS_6Class_4/admin/agreedlist");//수강신청확인으로 이동
+			submenuList.add("/HBLMS_6Class_4/findUser.do");
 		} 
 		session.setAttribute("menu", menuList);
 		session.setAttribute("slist", submenuList);

@@ -17,8 +17,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>한빛LMS</title>
-<link rel="stylesheet" href="./css/grid.css" />
-<script type="text/javascript" src="./js/jquery-1.11.3.js"></script>
+<link rel="stylesheet" href="./../css/grid.css" />
+<script type="text/javascript" src="./../js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.main').addClass("grid10");//main부분의 그리드 잡기
@@ -29,7 +29,7 @@
 			$(this).css('backgroundColor', '#ffffff');
 		});
 		
-		var url = "AttendSearch.do";
+		var url = "./AttendSearch.do";
 		var lectid=$('#lectid').text();
 		var target = $('table');
 		var totalday = $('#lectday').text()/2;
@@ -159,16 +159,16 @@ width: 100%;
 </head>
 <body>
 	<div class="container">
-		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
+		<jsp:include page="./../template/header.jsp"></jsp:include>
+		<jsp:include page="./../template/menu.jsp"></jsp:include>
 
 		<div class="content row">
 			<div class="grid2 side">
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
+				<jsp:include page="./../template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
 			<div class="path">
-			<p><a href="./main">HOME</a> > <a href="./mypage">마이페이지</a> > 수강생정보확인</p>
+			<p><a href="./../main">HOME</a> > <a href="./../mypage">마이페이지</a> > 수강생정보확인</p>
 			</div>
 			
 	<h1 id="lectid" class="lect">${lectid }</h1>
@@ -207,7 +207,7 @@ width: 100%;
 	</form>
 	</div>
 		</div>
-		<jsp:include page="/template/footer.jsp"></jsp:include>
+		<jsp:include page="./../template/footer.jsp"></jsp:include>
 	</div>
 	<!-- container end -->
 </body>

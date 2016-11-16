@@ -70,10 +70,10 @@
 <body>
 	<div class="header row">
 		<div class="grid3 ad1">
-			<img alt="ad1" src="imgs/ad1.jpg">
+			<img alt="ad1" src="/HBLMS_6Class_4/imgs/ad1.jpg">
 		</div>
 		<div class="grid6 logo">
-			<a href="./main"><img alt="logo" src="imgs/logo_ai.png"></a>
+			<a href="/HBLMS_6Class_4/main"><img alt="logo" src="/HBLMS_6Class_4/imgs/logo_ai.png"></a>
 		</div>
 		<div class="grid3 login">
 			<%
@@ -83,14 +83,14 @@
 			<p class="logout">
 				<%=session.getAttribute("id")%>님 환영합니다.
 			</p>
-			<p class="logout"><a href="logout.do" id="logout">로그아웃</a> <a href="./mypage">마이페이지</a>
+			<p class="logout"><a href="/HBLMS_6Class_4/logout.do" id="logout">로그아웃</a> <a href="/HBLMS_6Class_4/mypage">마이페이지</a>
 			</p>
 			<%
 				}
 				} else {
 			%>
 			<p class="login">
-				<a href="loginform.do">로그인</a> <a href="gaip.do">회원가입</a> <a href="./searchIDPW.jsp">ID/PW찾기</a>
+				<a href="/HBLMS_6Class_4/loginform.do">로그인</a> <a href="/HBLMS_6Class_4/gaip.do">회원가입</a> <a href="/HBLMS_6Class_4/searchIDPW.jsp">ID/PW찾기</a>
 			</p>
 			<%
 				}

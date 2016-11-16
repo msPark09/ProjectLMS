@@ -38,7 +38,7 @@ public class AttendListCon extends HttpServlet {
 		request.setAttribute("alist", list);
 		request.setAttribute("totalDay", totalDay);
 
-		request.getRequestDispatcher("AttendList.jsp").forward(request,
+		request.getRequestDispatcher("./AttendList.jsp").forward(request,
 				response);
 	}
 

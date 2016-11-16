@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="/HBLMS_6Class_4/js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.mfooter').on('click', function() {
@@ -135,26 +135,26 @@
 		<p class="logout">
 			<%=session.getAttribute("id")%>님 환영합니다.
 		</p>
-		<p class="logout"><a href="logout.do" id="logout">로그아웃</a> <a href="./mypage">마이페이지</a>
+		<p class="logout"><a href="/HBLMS_6Class_4/logout.do" id="logout">로그아웃</a> <a href="/HBLMS_6Class_4/mypage">마이페이지</a>
 		</p>
 		<%
 			}
 			} else {
 		%>
 		<p class="login">
-			<a href="loginform.do">로그인</a> <a href="gaip.do">회원가입</a> <a href="./searchIDPW.jsp">ID/PW찾기</a>
+			<a href="/HBLMS_6Class_4/loginform.do">로그인</a> <a href="/HBLMS_6Class_4/gaip.do">회원가입</a> <a href="/HBLMS_6Class_4/searchIDPW.jsp">ID/PW찾기</a>
 		</p>
 		<%
 			}
 		%>
 	</div>
 	<div class="grid12 fimg">
-	<a href="./moveURL?url=joinT"><img alt="sm1" src="imgs/sidemenu.gif"></a> <a
-				href="./moveURL?url=loc"><img alt="sm2" src="imgs/sidemenu2.gif"></a>
+	<a href="/HBLMS_6Class_4/moveURL?url=joinT"><img alt="sm1" src="/HBLMS_6Class_4/imgs/sidemenu.gif"></a> <a
+				href="/HBLMS_6Class_4/moveURL?url=loc"><img alt="sm2" src="/HBLMS_6Class_4/imgs/sidemenu2.gif"></a>
 	</div>
 	<div class="footer row">
 		<div class="grid3">
-			<img alt="footerlogo" src="imgs/footerlogo.png">
+			<img alt="footerlogo" src="/HBLMS_6Class_4/imgs/footerlogo.png">
 		</div>
 		<div class="mfooter">
 			<a href="#">▼</a>

@@ -32,7 +32,7 @@ public class JobDetailCon extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("dto", dto);
-		request.getRequestDispatcher("jobdetail.jsp").forward(request, response);	
+		request.getRequestDispatcher("./jobdetail.jsp").forward(request, response);	
 		
 	}
 	

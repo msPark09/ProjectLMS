@@ -34,7 +34,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>joblist</servlet-name>
-		<url-pattern>/jobList</url-pattern>
+		<url-pattern>/job/jobList</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>jobdetail</servlet-name>
@@ -42,7 +42,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jobdetail</servlet-name>
-		<url-pattern>/jobDetail</url-pattern>
+		<url-pattern>/job/jobDetail</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>jobsearch</servlet-name>
@@ -50,7 +50,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jobsearch</servlet-name>
-		<url-pattern>/JobSearch.do</url-pattern>
+		<url-pattern>/job/JobSearch.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searchIDPW</servlet-name>
@@ -138,7 +138,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AdmLectlist</servlet-name>
-		<url-pattern>/admlectlist</url-pattern>
+		<url-pattern>/admin/admlectlist</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>admsearch</servlet-name>
@@ -146,7 +146,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admsearch</servlet-name>
-		<url-pattern>/admlistone.do</url-pattern>
+		<url-pattern>/admin/admlistone.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>attendlist</servlet-name>
@@ -154,7 +154,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>attendlist</servlet-name>
-		<url-pattern>/attend</url-pattern>
+		<url-pattern>/admin/attend</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searchstu</servlet-name>
@@ -162,7 +162,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searchstu</servlet-name>
-		<url-pattern>/AttendSearch.do</url-pattern>
+		<url-pattern>/admin/AttendSearch.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>agreed</servlet-name>
@@ -170,7 +170,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>agreed</servlet-name>
-		<url-pattern>/agreedlist</url-pattern>
+		<url-pattern>/admin/agreedlist</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>agreedSearch</servlet-name>
@@ -178,7 +178,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>agreedSearch</servlet-name>
-		<url-pattern>/AgreedSearch.do</url-pattern>
+		<url-pattern>/admin/AgreedSearch.do</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>agreedInsert</servlet-name>
@@ -186,7 +186,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>agreedInsert</servlet-name>
-		<url-pattern>/insertagreed</url-pattern>
+		<url-pattern>/admin/insertagreed</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>agreedDelete</servlet-name>
@@ -194,7 +194,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>agreedDelete</servlet-name>
-		<url-pattern>/deleteagreed</url-pattern>
+		<url-pattern>/admin/deleteagreed</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>teachlist</servlet-name>

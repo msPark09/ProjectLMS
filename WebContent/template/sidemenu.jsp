@@ -12,7 +12,7 @@ ArrayList<String> sublist =(ArrayList<String>) request.getAttribute("slist");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>한빛LMS</title>
-<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="/HBLMS_6Class_4/js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 
 </script>
@@ -123,9 +123,9 @@ list-style: none;
 			</ul>
 		</div>
 		<div class="img">
-			<a href="./moveURL?url=joinT"><img alt="sm1"
-				src="imgs/sidemenu.gif"></a> <a href="./moveURL?url=loc"><img
-				alt="sm2" src="imgs/sidemenu2.gif"></a>
+			<a href="/HBLMS_6Class_4/moveURL?url=joinT"><img alt="sm1"
+				src="/HBLMS_6Class_4/imgs/sidemenu.gif"></a> <a href="/HBLMS_6Class_4/moveURL?url=loc"><img
+				alt="sm2" src="/HBLMS_6Class_4/imgs/sidemenu2.gif"></a>
 		</div>
 	</div>
 </body>

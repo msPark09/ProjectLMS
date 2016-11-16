@@ -28,9 +28,9 @@ public class AgreedDeletCon extends HttpServlet {
 			e.printStackTrace();
 		}		
 		if(result>0){
-			response.sendRedirect("agreedlist");
+			response.sendRedirect("./agreedlist");
 		}else{
-			response.sendRedirect("error.jsp");
+			response.sendRedirect("./../error.jsp");
 		}
 	}
 

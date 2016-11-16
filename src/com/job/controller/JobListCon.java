@@ -29,7 +29,7 @@ public class JobListCon extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("joblist.jsp").forward(request, response);
+		request.getRequestDispatcher("./joblist.jsp").forward(request, response);
 	}
 
 }

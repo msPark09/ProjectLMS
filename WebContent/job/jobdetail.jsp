@@ -10,8 +10,8 @@
 	mlist.add("수강후기");
 	ArrayList<String> slist = new ArrayList<String>();
 	slist.add("./jobList");//취업정보
-	slist.add("./moveURL?url=broad");//공지사항
-	slist.add("./moveURL?url=after");//수강후기
+	slist.add("/HBLMS_6Class_4/moveURL?url=broad");//공지사항
+	slist.add("/HBLMS_6Class_4/moveURL?url=after");//수강후기
 	request.setAttribute("menu", mlist);
 	request.setAttribute("slist", slist);
 	int cnt =1;
@@ -23,15 +23,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>한빛LMS</title>
-<link rel="stylesheet" href="./css/grid.css" />
-<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<link rel="stylesheet" href="./../css/grid.css" />
+<script type="text/javascript" src="./../js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.main').addClass("grid10");//main부분의 그리드 잡기
-	$('.submenu').eq(0).attr('href','./jobList');//취업정보
-	$('.submenu').eq(1).attr('href','./moveURL?url=broad');//공지사항
-	$('.submenu').eq(2).attr('href','./moveURL?url=after');//수강후기
-	
+		
 	$(document).on('mouseover','.bean', function(){
 		$(this).css('backgroundColor', '#f2f2f2');
 	}).on('mouseout','.bean', function(){
@@ -112,16 +109,16 @@ text-decoration: none;
 </head>
 <body>
 	<div class="container">
-		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
+		<jsp:include page="./../template/header.jsp"></jsp:include>
+		<jsp:include page="./../template/menu.jsp"></jsp:include>
 
 		<div class="content row">
 			<div class="grid2 side">
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
+				<jsp:include page="./../template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
 			<div class="path">
-			<p><a href="./main">HOME</a> > <a href="./jobList">고객센터</a> > <a href="./joblist">취업정보</a> > 구인상세정보</p>
+			<p><a href="/HBLMS_6Class_4/main">HOME</a> > <a href="./jobList">고객센터</a> > <a href="./joblist">취업정보</a> > 구인상세정보</p>
 			</div>
 		<table>
 			<tr>
@@ -140,12 +137,12 @@ text-decoration: none;
 					<td colspan="2"><a href="http://${dto.jobweb }">${dto.jobweb }</a></td>
 				</tr>
 				<tr>
-					<td colspan="2"><a target="_self" href="download.jsp?filename=${dto.jobfile }">${dto.jobfile }</a></td>
+					<td colspan="2"><a target="_self" href="/HBLMS_6Class_4/download.jsp?filename=${dto.jobfile }">${dto.jobfile }</a></td>
 				</tr>
 		</table>
 			</div>
 		</div>
-		<jsp:include page="/template/footer.jsp"></jsp:include>
+		<jsp:include page="./../template/footer.jsp"></jsp:include>
 	</div>
 	<!-- container end -->
 </body>

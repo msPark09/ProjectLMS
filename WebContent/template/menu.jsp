@@ -13,7 +13,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="/HBLMS_6Class_4/js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var edu = "교육서비스";
@@ -23,27 +23,34 @@
 			var text = $(this).text();
 			if(text==edu){
 			//alert(text);
-				$('.intro').fadeIn(500);
+				$('.intro').fadeIn(800);
 				$('.HBLect').hide();
 				$('.HBjob').hide(0);				
 			}else if(text==hb){
 			//alert(text);				
 				$('.intro').hide();
-				$('.HBLect').fadeIn(500);
+				$('.HBLect').fadeIn(800);
 				$('.HBjob').hide();
 			}else{
 			//alert(text);		
 				$('.intro').hide();
 				$('.HBLect').hide();
-				$('.HBjob').fadeIn(500);
+				$('.HBjob').fadeIn(800);
 			}
 		});
-		$('.submenu li:last-child').on('mouseleave',function(){
+		$('#introsub1').on('mouseleave',function(){
 		//alert("짠");
-			$('.intro').hide();
-			$('.HBLect').hide();
-			$('.HBjob').hide();
+			$('.intro').fadeOut(100);
 		});
+		$('#HBLectsub2').on('mouseleave',function(){
+			//alert("짠");
+				$('.HBLect').fadeOut(100);
+			});
+		$('#HBjobsub3').on('mouseleave',function(){
+			//alert("짠");
+				$('.HBjob').fadeOut(100);
+			});
+		
 	});
 </script>
 <style type="text/css">
@@ -126,9 +133,9 @@ display: none;
 	<div class="menu row">
 		<div class="grid12">
 			<ul class="upmenu">
-				<li><a href="./introduce.jsp?introIdx=0">교육서비스</a></li>
-				<li><a href="./HBLectIntro.jsp">한빛과목및과정</a></li>
-				<li><a href="./jobList">고객센터</a></li>
+				<li><a href="/HBLMS_6Class_4/introduce.jsp?introIdx=0">교육서비스</a></li>
+				<li><a href="/HBLMS_6Class_4/HBLectIntro.jsp">한빛과목및과정</a></li>
+				<li><a href="/HBLMS_6Class_4/job/jobList">고객센터</a></li>
 			</ul>
 		</div>
 	</div>
@@ -136,9 +143,9 @@ display: none;
 		<div class="grid12 intro">
 			<div class="grid4" id="introsub1">
 			<ul>
-			<li><a href="introduce.jsp?introIdx=1">국비지원 취업반</a></li>
-			<li><a href="introduce.jsp?introIdx=2">재직자 취업반</a></li>
-			<li><a href="introduce.jsp?introIdx=3">졸업예정 취업반</a></li>
+			<li><a href="/HBLMS_6Class_4/introduce.jsp?introIdx=1">국비지원 취업반</a></li>
+			<li><a href="/HBLMS_6Class_4/introduce.jsp?introIdx=2">재직자 취업반</a></li>
+			<li><a href="/HBLMS_6Class_4/introduce.jsp?introIdx=3">졸업예정 취업반</a></li>
 			</ul>
 			</div>
 			<div class="grid4" id="introsub2">
@@ -155,9 +162,9 @@ display: none;
 			<div class="grid4" id="HBLectsub2">
 			<ul>
 			<%for(LectureDto bean : list){ %>
-			<li><a href="HBLectExplan.jsp?lectIdx=<%=(++cnt)%>"><%=bean.getCname() %></a></li>
+			<li><a href="/HBLMS_6Class_4/HBLectExplan.jsp?lectIdx=<%=(++cnt)%>"><%=bean.getCname() %></a></li>
 			<%} %>
-			<li><a href="HBLectIntro.jsp">수강신청</a></li>			
+			<li><a href="/HBLMS_6Class_4/HBLectIntro.jsp">수강신청</a></li>			
 			</ul>
 			</div>
 			<div class="grid4" id="HBLectsub3">
@@ -173,9 +180,9 @@ display: none;
 			</div>
 			<div class="grid4" id="HBjobsub3">
 			<ul>
-			<li><a href="jobList">취업정보</a></li>
-			<li><a href="moveURL?url=broad">공지사항</a></li>
-			<li><a href="moveURL?url=after">수강후기</a></li>
+			<li><a href="/HBLMS_6Class_4/job/jobList">취업정보</a></li>
+			<li><a href="/HBLMS_6Class_4/moveURL?url=broad">공지사항</a></li>
+			<li><a href="/HBLMS_6Class_4/moveURL?url=after">수강후기</a></li>
 			</ul>
 			</div>
 		</div>

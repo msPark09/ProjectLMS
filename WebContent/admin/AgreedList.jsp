@@ -1,52 +1,47 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	request.setAttribute("title", "고객센터");
-	ArrayList<String> mlist = new ArrayList<String>();
-	mlist.add("취업정보");
-	mlist.add("공지사항");
-	mlist.add("수강후기");
-	ArrayList<String> slist = new ArrayList<String>();
-	slist.add("./jobList");//취업정보
-	slist.add("./moveURL?url=broad");//공지사항
-	slist.add("./moveURL?url=after");//수강후기
-	request.setAttribute("menu", mlist);
-	request.setAttribute("slist", slist);
-	int cnt =1;
-%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	
+	ArrayList<String> list = (ArrayList<String>)session.getAttribute("menu");
+	request.setAttribute("menu", list);
+	ArrayList<String> hreList = (ArrayList<String>)session.getAttribute("slist");
+	request.setAttribute("slist", hreList);
+	request.setAttribute("title", "마이페이지");
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./../css/grid.css" />
+
 <title>한빛LMS</title>
-<link rel="stylesheet" href="./css/grid.css" />
-<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="./../js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.main').addClass("grid10");//main부분의 그리드 잡기
-
+	
 	$(document).on('mouseover','.bean', function(){
 		$(this).css('backgroundColor', '#f2f2f2');
 	}).on('mouseout','.bean', function(){
 		$(this).css('backgroundColor', '#ffffff');
 	});
-	
-	var url = "JobSearch.do";
-	var target = $('table');
+
 	$('form').submit(function() {
+		var url="./AgreedSearch.do";
 		var op = $('#op').val();
 		var sel = $('#sel').val();
 		var param = {'op':op, 'sel':sel};
+		var target = $('table');
 		$.ajax({
 				'url':url,
 				'data':param,
 				'error' : function(jqXHR, textStatus) {
 					alert("통신실패 " + textStatus + "(code): "	+ jqXHR.status);},
 				'success' : function(data, textStatus,jqXHR) {	
-					target.html("<table><tr><th>번호</th><th>구인구직</th><th>작성자</th></tr>");
+					target.html("<table><tr><th>강의명</th><th>구분</th><th>신청자</th><th>승인여부</th></tr>");
 					data = data.replace(/\+/gi,'%20');
 					data = decodeURIComponent(data);
 					target.append(data);
@@ -55,8 +50,29 @@ $(document).ready(function(){
 			});
 		return false;
 	});
-
-
+	 	
+	$(document).on('click','.yes',function(){
+		//수강신청 승인
+		var url = $(this).attr('value');
+		    var r = window.confirm("수강신청을 승인하시겠습니까?");
+		    	//alert(url+" href : "+"./insertagreed?"+url);
+		    if (r == true) {
+		        location.href="./insertagreed?"+url;
+		    }
+		    return false;
+	});
+	$(document).on('click','.no',function(){
+	//수강신청 반려
+	//alert("click");
+		var url = $(this).attr('value');
+	    var r = window.confirm("수강신청을 반려하시겠습니까?");
+		    	//alert(url);
+	    if (r == true) {
+	        location.href = "./deleteagreed?"+url;
+	    }
+	    return false;
+	});
+	
 });
 
 </script>
@@ -86,13 +102,15 @@ border-bottom: 2px red solid;
 }
 
 table td:nth-child(1){
-width:10%;
+width:45%;
 }
 table td:nth-child(2){
-width:70%;
-text-align: left;
+width:15%;
 }
 table td:nth-child(3){
+width:10%;
+}
+table td:nth-child(4){
 width:20%;
 }
 .jobimg{
@@ -136,56 +154,62 @@ text-decoration: none;
 }
 
 </style>
-
+</style>
 </head>
 <body>
-	<div class="container">
-		<jsp:include page="/template/header.jsp"></jsp:include>
-		<jsp:include page="/template/menu.jsp"></jsp:include>
+<div class="container">
+		<jsp:include page="./../template/header.jsp"></jsp:include>
+		<jsp:include page="./../template/menu.jsp"></jsp:include>
 
 		<div class="content row">
 			<div class="grid2 side">
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
+				<jsp:include page="./../template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
 			<div class="path">
-			<p><a href="./main">HOME</a> > <a href="./jobList">고객센터</a> > 취업정보</p>
+			<p><a href="./../main">HOME</a> > <a href="./../mypage">마이페이지</a> > 수강신청확인</p>
 			</div>
-			<div class="jobimg"><img alt="job" src="./imgs/job.png"></div>
-			<form action="JobSearch.do">
+	<form action="./AgreedSearch.do">
 		<table>
 			<tr>
-				<th>번호</th>
-				<th>구인구직</th>
-				<th>작성자</th>
+				<th>강의명</th>
+				<th>구분</th>
+				<th>신청자</th>
+				<th>승인여부</th>
 			</tr>
-			<c:if test="${empty list }">
+			<c:if test="${empty alist }">
 				<tr>
-					<td colspan="3">구인을 희망하는 사업처가 없습니다.</td>
+					<td colspan="4">수강 승인 요청이 없습니다.</td>
 				</tr>
 			</c:if>
-			<c:forEach items="${list }" var="bean">
+			<c:forEach items="${alist }" var="bean">
 				<tr class="bean">
-					<td><%=cnt++ %></td>
-					<td><a href="./jobDetail?id=${bean.id}">${bean.jobname}</a></td>
-					<td>${bean.adminid}</td>
+					<td>${bean.lectname}</td>
+					<td>${bean.lectstatu}</td>
+					<td>${bean.stuname}</td>
+					<c:if test="${bean.agreed eq 0}">
+					<td><button class="yes" value="lectid=${bean.lectid}&stuid=${bean.stuid}">Y</button>/<button class="no" value="lectid=${bean.lectid}&stuid=${bean.stuid}">N</button></td>
+					</c:if>
+					<c:if test="${bean.agreed eq 1}">
+					<td>Y</td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
-		<div class="search">
 		<p>
 			<a href="#">1</a>
 		</p>
 		<select name="op" id="op">
 			<option value="0">제목</option>
-			<option value="1">작성자</option>
+			<option value="1">구분</option>
+			<option value="2">이름</option>
+			<option value="3">수강신청</option>
 		</select> <input type="text" id="sel" name="sel" />
 		<button type="submit" id="search">검 색</button>
-		</div>
 	</form>
-			</div>
-		</div>
-		<jsp:include page="/template/footer.jsp"></jsp:include>
+	</div>
+	</div>
+	<jsp:include page="./../template/footer.jsp"></jsp:include>
 	</div>
 	<!-- container end -->
 </body>

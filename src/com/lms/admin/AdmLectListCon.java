@@ -33,7 +33,7 @@ public class AdmLectListCon extends HttpServlet {
 		}
 		
 		request.setAttribute("alist", list);
-		request.getRequestDispatcher("/admlectList.jsp").forward(request,
+		request.getRequestDispatcher("./admlectList.jsp").forward(request,
 				response);
 
 	}

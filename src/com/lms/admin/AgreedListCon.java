@@ -31,7 +31,7 @@ public class AgreedListCon extends HttpServlet {
 		}
 		
 		request.setAttribute("alist", list);
-		request.getRequestDispatcher("AgreedList.jsp").forward(request, response);
+		request.getRequestDispatcher("./AgreedList.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
