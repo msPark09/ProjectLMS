@@ -13,14 +13,13 @@ create table class(
 	cfname varchar2(50),
 	priority number(5)
  );
-
  
  create table userlist(
  	id varchar2(12),
  	pw varchar2(20),
  	lv number,
  	name varchar2(20),
- 	phone number,
+ 	phone varchar2(15),
  	address varchar2(100),
  	mail varchar2(50)
  );
@@ -77,6 +76,7 @@ create table prolist(
 	id varchar2(20),
 	PRIMARY KEY(proid)
 );
+
 insert into prolist values ('P000','user1','C000','임시제목1','임시내용1',sysdate,'홓호홍1','kangsa1');
 insert into prolist values ('P001','user1','C001','임시제목2','임시내용2',sysdate,'홓호홍2','kangsa2');
 insert into prolist values ('P002','user1','C002','임시제목3','임시내용3',sysdate,'홓호홍3','kangsa3');

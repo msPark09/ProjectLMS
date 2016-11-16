@@ -25,7 +25,12 @@ public class LectOneController extends HttpServlet {
 		int op = Integer.parseInt(request.getParameter("op"));
 		
 		dao = new SearchDao();
-		list = dao.StuLectOne(id,sel,op);
+		try {
+			list = dao.StuLectOne(id,sel,op);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if(list.size()>0){
 			request.setAttribute("id", id);

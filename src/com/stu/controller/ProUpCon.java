@@ -54,7 +54,12 @@ public class ProUpCon extends HttpServlet {
 		dto.setProren(proren);
 		
 		dao = new UpdateDao();
-		dao.ProinfoUp(dto);
+		try {
+			dao.ProinfoUp(dto);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		response.sendRedirect("List.do?id="+id+"&lectid="+lectid);
 				

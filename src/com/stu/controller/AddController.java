@@ -1,6 +1,7 @@
 package com.stu.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +25,12 @@ public class AddController extends HttpServlet {
 		String lectid = request.getParameter("lectid");
 		
 		dao = new DetailDao();
-		dto = dao.StuProDetail(proid,stuid);
+		try {
+			dto = dao.StuProDetail(proid,stuid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(dto==null || "".equals(dto)){
 			request.setAttribute("proid", proid);
 			request.setAttribute("stuid", stuid);

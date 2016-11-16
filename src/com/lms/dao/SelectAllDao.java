@@ -79,7 +79,7 @@ public class SelectAllDao {
 		return count;
 	}// idcheck
 
-	public MemDto Login(String id, String pw) {
+	public MemDto Login(String id, String pw) throws Exception {
 
 		String sql = "select * from userlist where id = ?";
 
@@ -104,6 +104,13 @@ public class SelectAllDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally{
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		}
 
 		return dto;
@@ -416,6 +423,7 @@ public class SelectAllDao {
 				}
 				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -442,6 +450,7 @@ public class SelectAllDao {
 				}
 				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -482,7 +491,7 @@ public class SelectAllDao {
 								
 				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
-//				if(conn!=null)conn.close();
+				if(conn!=null)conn.close();
 			}
 			return list;
 			

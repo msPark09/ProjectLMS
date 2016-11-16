@@ -1,6 +1,7 @@
 package com.stu.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +26,12 @@ public class EditController extends HttpServlet {
 //		System.out.println(stuid);
 		
 		dao = new DetailDao();
-		dto = dao.StuProDetail(proid,stuid);
+		try {
+			dto = dao.StuProDetail(proid,stuid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		request.setAttribute("bean", dto);
 		
 		request.getRequestDispatcher("Student/ResultsEdit.jsp").forward(request, response);

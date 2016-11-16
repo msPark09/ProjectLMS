@@ -33,7 +33,7 @@ public class UpdateDao {
 	}
 	
 	public void UserUpdate(String id, String name, String pw, int lv,
-			String mail, String phone, String post, String juso) {
+			String mail, String phone, String post, String juso) throws Exception {
 		
 		String address = post+"#"+juso;
 		
@@ -52,11 +52,18 @@ public class UpdateDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		}
 		
 	}
 	//프로젝트 수정
-		public void ProinfoUp(ProjectDto project) {
+		public void ProinfoUp(ProjectDto project) throws Exception {
 			String sql = "update project set subname=?,proexp=?,proorin=?,proren=? where proid=? and id=?";
 			
 			try {
@@ -72,6 +79,13 @@ public class UpdateDao {
 				conn.close();
 			} catch (SQLException e) {
 				System.out.println("SQL오류");
+			}finally{
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
 			}
 			
 		}

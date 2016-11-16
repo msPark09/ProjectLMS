@@ -28,7 +28,12 @@ public class LoginController extends HttpServlet {
 		String pw = request.getParameter("pw").trim();
 		
 		dao = new SelectAllDao();
-		dto = dao.Login(id,pw);//회원정보 확인
+		try {
+			dto = dao.Login(id,pw);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}//회원정보 확인
 		
 		if(dto==null){
 			JOptionPane.showMessageDialog(null, "등록된 회원정보가 없습니다.", "메세지", JOptionPane.ERROR_MESSAGE);

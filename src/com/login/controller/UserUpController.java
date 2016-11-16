@@ -36,7 +36,12 @@ public class UserUpController extends HttpServlet {
 		
 		
 		dao = new UpdateDao();
-		dao.UserUpdate(id,name,pw,lv,mail,phone,post,juso);
+		try {
+			dao.UserUpdate(id,name,pw,lv,mail,phone,post,juso);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		JOptionPane.showMessageDialog(null, "수정이 완료되었습니다.", "메세지", JOptionPane.PLAIN_MESSAGE);
 		response.sendRedirect("mypage.do");

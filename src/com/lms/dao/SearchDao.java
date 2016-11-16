@@ -461,7 +461,7 @@ public class SearchDao {
 	}//프로젝트 내 프로젝트 검색
 	
 	//수강중인 강의 확인
-		public List<ProlistDto> StuLectOne(String id, String sel, int op) {
+		public List<ProlistDto> StuLectOne(String id, String sel, int op) throws Exception {
 			
 			String temp = "%"+sel+"%";
 			
@@ -484,10 +484,16 @@ public class SearchDao {
 				while(rs.next()){
 					list.add(new ProlistDto(rs.getString("cname"),rs.getInt("grade"),rs.getString("classid"),rs.getString("stuid"),rs.getString("statu")));
 				}
-				if(rs!=null)rs.close();
-				if(pstmt!=null)pstmt.close();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}finally{
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
 			}
 			
 			return list;

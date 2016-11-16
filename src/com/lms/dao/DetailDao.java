@@ -198,7 +198,7 @@ public class DetailDao {
 	   }
 		
 	//프로젝트 내용
-		public ProjectDto StuProDetail(String proid, String stuid) {
+		public ProjectDto StuProDetail(String proid, String stuid) throws SQLException {
 			
 			String sql = "select proid,classid,proname,subname,proexp,proorin,proren,id from project where proid=? and id=?";
 
@@ -214,10 +214,16 @@ public class DetailDao {
 					dto = new ProjectDto(rs.getString("proid"),rs.getString("classid"),rs.getString("proname"),rs.getString("subname")
 							,rs.getString("proexp"),rs.getString("proorin"),rs.getString("proren"),rs.getString("id"));
 				}
-				if(rs!=null)rs.close();
-				if(pstmt!=null)pstmt.close();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}finally{
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
 			}
 			
 			return dto;

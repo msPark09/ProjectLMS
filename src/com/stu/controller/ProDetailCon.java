@@ -1,6 +1,7 @@
 package com.stu.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,7 +27,12 @@ public class ProDetailCon extends HttpServlet {
 //		String path=request.getRealPath("file");
 		
 		dao = new DetailDao();
-		dto = dao.StuProDetail(proid,stuid);
+		try {
+			dto = dao.StuProDetail(proid,stuid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(!(dto==null || "".equals(dto))){
 			request.setAttribute("bean", dto);
 	//		request.setAttribute("udir", path);
