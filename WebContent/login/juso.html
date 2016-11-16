@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+   <TITLE> 주소검색 </TITLE>
+   
+   <SCRIPT language="javascript">
+
+    function search(){
+		if (jf1.juso.value==""){
+			alert("찾고자 하는 주소를 입력해주세요.");
+			document.jf1.juso.focus();
+		}else{
+			document.jf1.submit();
+		}
+    }  
+   </SCRIPT>
+  </HEAD>
+  <BODY onload="jf1.juso.focus();">
+
+  <FORM name="jf1" action="juso1.jsp">
+  
+  <TABLE border="0">
+  <TR>
+	  <TD align="center">
+	   주소의 동(읍/리/면) 또는 마지막 부분을 입력하신 후 검색을 누르세요  
+	  </TD>
+  </TR>
+  
+  <TR>
+	  <TD align="center">
+		   <INPUT type="text" size=50 name="juso"/>
+		   <INPUT type="button" name="find" value="검색" onclick="search();"/>
+	  </TD>
+  </TR>
+  </TABLE>
+  
+  </FORM>
+
+  </BODY>
+</HTML>

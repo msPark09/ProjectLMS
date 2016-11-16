@@ -1,0 +1,126 @@
+       * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            .container {
+                width: 80%;
+                margin: 0px auto;
+            }
+            
+            .grid1,
+            .grid2,
+            .grid3,
+            .grid4,
+            .grid5,
+            .grid6,
+            .grid7,
+            .grid8,
+            .grid9,
+            .grid10,
+            .grid11,
+            .grid12 {
+                float: left;
+            }
+            
+            @media screen and (min-width: 1180px) {
+                /*PCver(~1024px)*/
+                /*내부 기준 100으로 잡아야함*/
+                .container .grid1 {
+                    /*width: 75px;*/
+                    width: 8.3333%;
+                }
+                .container .grid2 {
+                    /*width: 150px;*/
+                    width: 16.6666%
+                }
+                .container .grid3 {
+                    /*width: 225px;*/
+                    width: 25%;
+                }
+                .container .grid4 {
+                    /*width: 300px;*/
+                    width: 33.3333%;
+                }
+                .container .grid5 {
+                    /*width: 375px;*/
+                    width: 41.666%;
+                }
+                .container .grid6 {
+                    /*width: 450px;*/
+                    width: 50%;
+                }
+                .container .grid7 {
+                    /*width: 525px;*/
+                    width: 58.3333%;
+                }
+                .container .grid8 {
+                    /*width: 600px;*/
+                    width: 66.666%;
+                }
+                .container .grid9 {
+                    /*width: 675px;*/
+                    width: 75%;
+                }
+                .container .grid10 {
+                    /*width: 750px;*/
+                    width: 83.333%;
+                }
+                .container .grid11 {
+                    /*width: 825px;*/
+                    width: 91.666%;
+                }
+                .container .grid12 {
+                    /*width: 900px;*/
+                    width: 100%;
+                }
+            }
+            
+            @media screen and (max-width: 1178px) and (min-width: 600px) {
+                /*Tabletver(400px~1023px)*/
+                 .container {
+                width: 90%;
+                margin: 0px auto;
+            }
+                .container .grid1 {
+                    /*width: 75px;*/
+                    width: 16%;
+                }
+                .container .grid2 {
+                    /*width: 150px;*/
+                    width: 32%
+                }
+                .container .grid3 {
+                    /*width: 225px;*/
+                    width: 48%;
+                }
+                .container .grid4, .container .grid5, .container .grid6, .container .grid7, .container .grid8, .container .grid9, .container .grid10, .container .grid11, .container .grid12{
+                	width: 100%;
+                }
+            }
+            
+            @media screen and (max-width: 599px) {
+                /*Mobilever(~399px)*/
+                 .container {
+                width: 100%;
+                margin: 0px auto;
+            }
+                .container .grid1 {
+                    /*width: 75px;*/
+                    width: 24%;
+                }
+                .container .grid2 {
+                    /*width: 150px;*/
+                    width: 32%
+                }
+                .container .grid3 {
+                    /*width: 225px;*/
+                    width: 48%;
+                }
+                .container .grid4, .container .grid5, .container .grid6, .container .grid7, .container .grid8, .container .grid9, .container .grid10, .container .grid11, .container .grid12{
+                	width: 100%;
+                }
+            }
+            .row{
+            	clear:both;
+            }
