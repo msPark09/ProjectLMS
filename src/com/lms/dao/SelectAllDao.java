@@ -464,11 +464,12 @@ public class SelectAllDao {
 
 	public List<ProlistDto> StuLectList(String id) {
 
-		String sql = "select A.classid,A.cname,A.statu,A.stuid,A.agreed,B.grade from (";
-		sql += "select classid,cname,statu,stuid,agreed from (";
-		sql += "select A.classid,A.cname,A.statu,B.stuid,B.agreed from class A inner join agreed B on A.classid = B.lectid";
-		sql += ") where stuid=? and agreed=1";
-		sql += ") A left join test B on A.classid = B.classid and A.stuid = B.id";
+//		String sql = "select A.classid,A.cname,A.statu,A.stuid,A.agreed,B.grade from (";
+//		sql += "select classid,cname,statu,stuid,agreed from (";
+//		sql += "select A.classid,A.cname,A.statu,B.stuid,B.agreed from class A inner join agreed B on A.classid = B.lectid";
+//		sql += ") where stuid=? and agreed=1";
+//		sql += ") A left join test B on A.classid = B.classid and A.stuid = B.id";
+		String sql="select b.id, b.classid,  from STUDENT b inner join class a on a.classid=b.classid where id=?";
 
 		List<ProlistDto> list = new ArrayList<ProlistDto>();
 
@@ -478,9 +479,14 @@ public class SelectAllDao {
 			rs = pstmt.executeQuery();
 			// System.out.println(rs);
 			while (rs.next()) {
-				list.add(new ProlistDto(rs.getString("cname"), rs
-						.getInt("grade"), rs.getString("classid"), rs
-						.getString("stuid"), rs.getString("statu")));
+//				list.add(new ProlistDto(rs.getString("cname"), rs
+//						.getInt("grade"), rs.getString("classid"), rs
+//						.getString("stuid"), rs.getString("statu")));
+				ProlistDto dto = new ProlistDto();
+				dto.setLect(rs.getString("cname"));
+				dto.setLectid(rs.getString("classid"));
+				dto.set
+				list.add()
 			}
 			if (rs != null)
 				rs.close();

@@ -21,8 +21,27 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.main').addClass("grid10");//main부분의 그리드 잡기
-	
+		
 });
+$('a').on('click',function() {
+	var url = $(this).attr('href');
+	var type = "application/x-www-form-urlencoded; charset=UTF-8";
+	
+	var target = $('table');
+	$.ajax({
+			'type':post,
+			'url':url,
+			'contentType': type,
+			'error' : function(jqXHR, textStatus) {
+				alert("통신실패 " + textStatus + "(code): "	+ jqXHR.status);},
+			'success' : function(data) {
+				var msg = decodeURIComponent(data);
+				target.append(msg);
+				}
+		});
+	return false;
+});
+
 </script>
 <style type="text/css">
 div {

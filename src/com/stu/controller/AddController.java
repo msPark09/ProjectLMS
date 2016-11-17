@@ -1,6 +1,7 @@
 package com.stu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -31,6 +32,7 @@ public class AddController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String data = "";
 		if(dto==null || "".equals(dto)){
 			request.setAttribute("proid", proid);
 			request.setAttribute("stuid", stuid);
@@ -38,8 +40,12 @@ public class AddController extends HttpServlet {
 			request.setAttribute("lectid", lectid);
 			request.getRequestDispatcher("Student/ResultsInsert.jsp").forward(request, response);
 		}else{
-			JOptionPane.showMessageDialog(null, "이미 과제를 제출하셨습니다.", "에러", JOptionPane.ERROR_MESSAGE);
-			response.sendRedirect("List.do?lectid="+lectid+"&id="+stuid);
+//			JOptionPane.showMessageDialog(null, "이미 과제를 제출하셨습니다.", "에러", JOptionPane.ERROR_MESSAGE);
+//			response.sendRedirect("List.do?lectid="+lectid+"&id="+stuid);
+			data += "<script type=\"text/javascript\"> alert(\"이미 과제를 제출하셨습니다.\"); location.href=\"List.do?lectid="+lectid+"&id="+stuid+"\"; </script>";
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter print = response.getWriter();
+			print.print(data);
 		}
 	}
 

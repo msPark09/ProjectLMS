@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%response.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +70,30 @@ color: black;
 	$(document).ready(function() {
 		$('.main').addClass("grid12");//main부분의 그리드 잡기
 	});
-
+	
+	$('form').submit(function() {
+		var url = $(this).attr('action');
+		var id = $('#id').val();
+		var pw = $('#pw').val();
+		var type = "application/x-www-form-urlencoded; charset=UTF-8";
+		
+		var target = $('table');
+		var param = {'id':id, 'pw':pw};
+		$.ajax({
+				'type':post,
+				'url':url,
+				'data':param,
+				'contentType': type,
+				'error' : function(jqXHR, textStatus) {
+					alert("통신실패 " + textStatus + "(code): "	+ jqXHR.status);},
+				'success' : function(data) {
+					var msg = decodeURIComponent(data);
+					target.append(msg);
+					}
+			});
+			return false;
+		});
+		
     function space(){
         if (event.keyCode==32){                             
             event.returnValue=false;
@@ -109,12 +133,12 @@ color: black;
 			    </TR> 
 			    <TR>
 			        <TD> 아이디 </TD>
-			        <TD> <INPUT type="text" size="10" name="id" onkeypress="space();"/> </TD>
+			        <TD> <INPUT type="text" size="10" name="id" id="id" onkeypress="space();"/> </TD>
 			    </TR>
 			    <TR>
 			        <TD> 비밀번호 </TD>
 			        <TD>
-			            <INPUT type="password" size="10" name="pw" onkeypress="space();"/>
+			            <INPUT type="password" size="10" name="pw" id="pw" onkeypress="space();"/>
 			            <INPUT type="button" value="로그인" name="login" onclick="log();"/>
 			        </TD>
 			    </TR>

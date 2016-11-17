@@ -1,6 +1,7 @@
 package com.login.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -35,9 +36,17 @@ public class LoginController extends HttpServlet {
 			e.printStackTrace();
 		}//회원정보 확인
 		
+		String data = "";
 		if(dto==null){
-			JOptionPane.showMessageDialog(null, "등록된 회원정보가 없습니다.", "메세지", JOptionPane.ERROR_MESSAGE);
-			response.sendRedirect("./loginform.do");
+//			JOptionPane.showMessageDialog(null, "등록된 회원정보가 없습니다.", "메세지", JOptionPane.ERROR_MESSAGE);
+//			response.sendRedirect("./loginform.do");
+			data += "<script type=\"text/javascript\"> alert(\"아이디 또는 비밀번호가 다릅니다.\"); location.href=\"loginform.do\"; </script>";
+			
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter print = response.getWriter();
+//			String dataEnco = URLEncoder.encode(data, "UTF-8");
+			print.print(data);
+			
 		}else{
 //			System.out.println("로그인 성공");
 			String sess = dto.getId();

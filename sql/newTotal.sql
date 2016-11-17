@@ -94,6 +94,9 @@ select * from prolist where classid='C06'
 
 select C.testid, C.proid, C.subname, C.proexp, C.proorin, D.name, C.id, C.grade from (select A.proid, A.subname, A.proexp, A.proorin, A.id, B.grade, B.testid from project A, test B where B.proid = A.proid) C inner join userlist D on C.id = D.id where C.proid='P002' and C.id='stu2'
 
+select A.classid,A.cname,A.statu,A.stuid,A.agreed,B.grade from  where stuid='stu1' and agreed=1) A left join test B on A.classid = B.classid and A.stuid = B.id
+select * from STUDENT b inner join class a on a.classid=b.classid where id='stu1'
+/*수강생 중에서 수강 아이디 같은거 찾고 그거랑 맞는  */
 /*insert*/
 /*강의 아이디/강의 설명/시작날짜/강사아이디/강사이름/강의목표/강의정보
   /강의이름/구분(수강중,수강종료,모집중)/상태(1,2,0)/강의총일수

@@ -1,6 +1,7 @@
 package com.lect.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,14 +27,20 @@ public class ProListCon extends HttpServlet {
 				
 		dao = new SelectAllDao();
 		list = dao.StuProjectList(lectid,id);
+		String data = "";
 		if(list.size()>0){
 			request.setAttribute("lectid", lectid);
 			request.setAttribute("id", id);
 			request.setAttribute("alist", list);
 			request.getRequestDispatcher("Student/ResultsList.jsp").forward(request, response);
 		}else{
-			JOptionPane.showMessageDialog(null, "등록된 프로젝트가 없습니다.", "메세지", JOptionPane.ERROR_MESSAGE);
-			response.sendRedirect("lectlist.do");
+//			JOptionPane.showMessageDialog(null, "등록된 프로젝트가 없습니다.", "메세지", JOptionPane.ERROR_MESSAGE);
+//			response.sendRedirect("lectlist.do");
+			data += "<script type=\"text/javascript\"> alert(\"등록된 프로젝트가 없습니다.\"); location.href=\"lectlist.do\"; </script>";
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter print = response.getWriter();
+//			String dataEnco = URLEncoder.encode(data, "UTF-8");
+			print.print(data);
 		}
 	}
 

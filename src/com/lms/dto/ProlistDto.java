@@ -14,6 +14,7 @@ public class ProlistDto {
 	private String name;
 	private String id;
 	private int grade;
+	private String division;
 	
 	public ProlistDto() {
 		// TODO Auto-generated constructor stub
@@ -73,6 +74,14 @@ public class ProlistDto {
 		this.proid = proid;
 		this.proname = proname;
 		this.proday = proday;
+	}
+
+	public String getDivision() {
+		return division;
+	}
+
+	public void setDivision(String division) {
+		this.division = division;
 	}
 	
 		

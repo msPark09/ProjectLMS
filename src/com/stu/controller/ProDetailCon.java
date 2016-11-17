@@ -1,6 +1,7 @@
 package com.stu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -33,13 +34,18 @@ public class ProDetailCon extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String data = "";
 		if(!(dto==null || "".equals(dto))){
 			request.setAttribute("bean", dto);
 	//		request.setAttribute("udir", path);
 			request.getRequestDispatcher("Student/ResultsContent.jsp").forward(request, response);
 		}else{
-			JOptionPane.showMessageDialog(null, "제출한과제가 없습니다.", "에러", JOptionPane.ERROR_MESSAGE);
-			response.sendRedirect("List.do?lectid="+lectid+"&id="+stuid);
+//			JOptionPane.showMessageDialog(null, "제출한과제가 없습니다.", "에러", JOptionPane.ERROR_MESSAGE);
+//			response.sendRedirect("List.do?lectid="+lectid+"&id="+stuid);
+			data += "<script type=\"text/javascript\"> alert(\"제출한과제가 없습니다.\"); location.href=\"List.do?lectid="+lectid+"&id="+stuid+"\"; </script>";
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter print = response.getWriter();
+			print.print(data);
 		}
 	}
 
