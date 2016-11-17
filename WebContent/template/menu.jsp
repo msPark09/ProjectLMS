@@ -25,7 +25,7 @@
 			//alert(text);
 				$('.intro').fadeIn(800);
 				$('.HBLect').hide();
-				$('.HBjob').hide(0);				
+				$('.HBjob').hide();				
 			}else if(text==hb){
 			//alert(text);				
 				$('.intro').hide();
@@ -40,16 +40,27 @@
 		});
 		$('#introsub1').on('mouseleave',function(){
 		//alert("짠");
-			$('.intro').fadeOut(100);
+			$('.intro').hide();
+				$('.HBLect').hide();
+				$('.HBjob').hide();
 		});
 		$('#HBLectsub2').on('mouseleave',function(){
 			//alert("짠");
-				$('.HBLect').fadeOut(100);
+			$('.intro').hide();
+			$('.HBLect').hide();
+			$('.HBjob').hide();
 			});
 		$('#HBjobsub3').on('mouseleave',function(){
 			//alert("짠");
-				$('.HBjob').fadeOut(100);
+			$('.intro').hide();
+			$('.HBLect').hide();
+			$('.HBjob').hide();
 			});
+		$('.header').on('mouseover', function(){
+			$('.intro').hide();
+				$('.HBLect').hide();
+				$('.HBjob').hide();			
+		})
 		
 	});
 </script>

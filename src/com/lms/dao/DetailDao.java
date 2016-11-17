@@ -172,10 +172,10 @@ public class DetailDao {
 		 public ProjectDto TeaProDetail(String proid, String id) throws Exception {
 //		   List<ProjectDto> teaprodetail = new ArrayList<ProjectDto>();
 		 ProjectDto dto = null;
-		   String sql = "select C.testid, C.proid, C.subname, D.name, C.proexp, C.proorin, D.name, C.id, C.grade from "
-				   +"(select A.proid as proid, A.subname as subname, A.proexp as proexp, "
-				   +"A.proorin as proorin, A.id as id, B.grade as grade, B.testid as testid from project A, test B "
-				   +"where B.id = A.id) C inner join userlist D on C.id = D.id where C.proid=\'"+proid+"\' and C.id=\'"+id+"\'";
+		   String sql = "select c.proname, C.testid, C.proid, C.subname, C.proexp, C.proorin, D.name, C.id, C.grade from "
+				   +"(select A.proname, A.proid, A.subname, A.proexp, "
+				   +"A.proorin, A.id, B.grade, B.testid from project A, test B "
+				   +"where B.proid = A.proid) C inner join userlist D on C.id = D.id where C.proid=\'"+proid+"\' and C.id=\'"+id+"\'";
 	//sql ¼öÁ¤ 
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -185,7 +185,7 @@ public class DetailDao {
 							rs.getString("subname"),
 							rs.getString("proexp"),rs.getString("proorin")
 						  ,rs.getString("id"),rs.getString("name"),
-						  rs.getString("testid"),rs.getInt("grade"));
+						  rs.getString("testid"),rs.getInt("grade"),rs.getString("proname"));
 //					System.out.println(teaprodetail.get(0).toString());
 				}
 			} finally {

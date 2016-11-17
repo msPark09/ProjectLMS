@@ -28,21 +28,13 @@ $(document).ready(function(){
 		$(this).css('backgroundColor', '#ffffff');
 	});
 	
-	$('.noneView').css('display','none');
-	$('#nonGrade').on('click',function(){
-		//alert("button click");
-		$('.bean').css('display','none');
-		$('.noneView').css('display','table-row');
-		return false;
-	});
-	//성적 미입력자
-	
 	//검색
 	$('form').submit(function() {
 		var url = $(this).attr('action');
 		var sel = $('#sel').val();
 		var op = $('#op').val();
 		var proid=$('#proid').val();
+		
 		var target = $('table');
 		var param = {'sel':sel, 'op':op, 'proid':proid};
 		$.ajax({
@@ -58,7 +50,6 @@ $(document).ready(function(){
 					target.append("</table>");
 					}
 			});
-		$('#nonGrade').css('display','none');
 			return false;
 		});
 });
@@ -176,19 +167,11 @@ text-decoration: none;
 					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">${bean.grade}</a></td>
 				</c:if>
 			</tr>
-			<c:if test="${bean.grade eq 0}">
-					<tr class="noneView">
-					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">${bean.subname}</a></td>
-					<td>${bean.name}</td>
-					<td><a href="./detailinsert?proid=${bean.proid}&id=${bean.id}">입력</a></td>					
-					</tr>
-			</c:if>	
 		</c:forEach>
 	</table>
 	<p>
 		<a href="#">1</a>
 	</p>
-		<button id="nonGrade">성적미입력자</button>
 	<select name="op" id="op">
 		<option value="0">제목</option>
 		<option value="1">이름</option>

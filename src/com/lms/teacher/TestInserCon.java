@@ -1,6 +1,7 @@
 package com.lms.teacher;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,11 @@ public class TestInserCon extends HttpServlet {
 			String id = req.getParameter("id");
 			String grade = req.getParameter("grade");
 			String proid = req.getParameter("proid");
+			String proname = req.getParameter("proname");
 			System.out.println(proid);
+			
+			System.out.println(proname);
+			proname = URLEncoder.encode(proname,"UTF-8");
 			int gradeInt = 0;
 			if(grade!= null || !grade.equals("")){
 				gradeInt = Integer.parseInt(grade);
@@ -33,7 +38,7 @@ public class TestInserCon extends HttpServlet {
 				e.printStackTrace();
 			}
 			if(result>0){
-				resp.sendRedirect("./lectprolist?proid="+proid);
+				resp.sendRedirect("./lectprolist?proname="+proname);
 			}else{
 				resp.sendRedirect("./detailinsert?id="+id+"&proid="+proid);
 			}

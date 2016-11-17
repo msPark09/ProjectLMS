@@ -31,7 +31,7 @@ public class ProjectDto {
 	}
 
 	public ProjectDto(String proid, String subname, String proexp,
-			String proorin, String id, String name, String testid, int grade) {
+			String proorin, String id, String name, String testid, int grade, String proname) {
 		super();
 		this.proid = proid;
 		this.subname = subname;
@@ -41,6 +41,7 @@ public class ProjectDto {
 		this.name = name;
 		this.testid = testid;
 		this.grade = grade;
+		this.proname = proname;
 	}
 
 	public ProjectDto(String proid, String subname, String id, String name,

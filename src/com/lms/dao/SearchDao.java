@@ -418,7 +418,10 @@ public class SearchDao {
 	public List<ProjectDto> searLecProTea(String op, String sel, String proid) throws Exception {
 		// TODO Auto-generated method stub
 		List<ProjectDto> lectprolist = new ArrayList<ProjectDto>();
-		String sql = "select C.proid, C.subname, D.name, C.grade, C.id, C.testid from (select A.proid as proid, A.id as id, B.grade as grade, A.subname as subname, B.testid as testid from project A, test B where B.id = A.id) C inner join userlist D on C.id = D.id where C.proid=\'"+proid+"\'";
+		String sql = "select C.proid, C.subname, D.name, C.grade, C.id, C.testid "
+				+ "from (select A.proid as proid, A.id as id, B.grade as grade, "
+				+ "A.subname as subname, B.testid as testid from project A, test "
+				+ "B where B.id = A.id) C inner join userlist D on C.id = D.id where C.proid=\'"+proid+"\'";
 		ProjectDto dto = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
