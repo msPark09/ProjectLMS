@@ -52,7 +52,7 @@
 	ResultSet rs;  
   	
 	String driver = "oracle.jdbc.driver.OracleDriver";
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String url = "jdbc:oracle:thin:@203.236.209.212:1521:xe";
 	String user = "scott";
 	String password = "tiger";
 	

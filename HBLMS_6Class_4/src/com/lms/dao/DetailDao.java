@@ -15,7 +15,7 @@ import com.lms.dto.ProjectDto;
 public class DetailDao {
 
 	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String url = "jdbc:oracle:thin:@203.236.209.212:1521:xe";
 	private String user = "scott";
 	private String password = "tiger";
 

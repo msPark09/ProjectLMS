@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class DeleteDao {
 	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String url = "jdbc:oracle:thin:@203.236.209.212:1521:xe";
 	/*@203.236.209.212*/
 	private String user = "scott";
 	private String password = "tiger";
