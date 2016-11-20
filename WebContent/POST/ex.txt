@@ -1,1 +1,0 @@
-LOAD DATA INFILE 'C:\Users\user\Desktop\project_LMS\workspace\HBLMS_6Class_4\WebContent\POST\POST.csv' INTO TABLE POST INSERT FIELDS terminated by ',' (PST1,PST2,ADDR1,ADDR2,ADDR3,TEMP,ADDR)
