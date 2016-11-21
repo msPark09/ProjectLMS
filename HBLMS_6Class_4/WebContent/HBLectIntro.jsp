@@ -7,8 +7,13 @@
 
 <%@ page import="java.util.List"%>
 <%
-	SelectAllDao dao = new SelectAllDao();
-	List<LectureDto> list = dao.LectList();
+	/*SelectAllDao dao = new SelectAllDao();
+	List<LectureDto> list = new ArrayList<LectureDto>();
+	try{
+	list = dao.LectList();
+	}catch(Exception e){
+		
+	}*/
 	//UnoDao dao1 = new UnoDao();
 
 	int login = 0;
@@ -28,7 +33,7 @@
 		url = "./loginform.do";//로그인페이지
 	}
 		
-	request.setAttribute("title", "한빛과목및과정");
+	/*request.setAttribute("title", "한빛과목및과정");
 	ArrayList<String> mlist = new ArrayList<String>();
 	ArrayList<String> slist = new ArrayList<String>();
 	for(int i=0;i<list.size();i++){
@@ -38,8 +43,7 @@
 	mlist.add("수강신청");
 	slist.add("./HBLectIntro.jsp");
 	request.setAttribute("menu", mlist);
-	request.setAttribute("slist", slist);
-	
+	request.setAttribute("slist", slist);*/
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -62,6 +66,23 @@
 		}).on('mouseout', '.bean', function() {
 			$(this).css('backgroundColor', '#ffffff');
 		});
+		
+		$('button').on('click',function(){
+			var classid = $(this).attr('class');
+			//alert(classid);
+			$('#classid').val(classid);
+			
+			result = window.confirm("수강신청하시겠습니까?");
+			if(result){
+				//document.f.action = f.action+"?id="+id+"&classid="+classid;
+				//alert(f.action);
+				//f.action +="?id="+id+"&classid="+classid;
+				document.f.submit();
+			}
+			return true;
+		});
+		
+		
 	});
 </script>
 <style type="text/css">
@@ -102,6 +123,7 @@ table td:nth-child(2) {
 table td:nth-child(3) {
 	width: 20%;
 }
+
 table td:nth-child(4) {
 	width: 25%
 }
@@ -129,14 +151,17 @@ table td:nth-child(4) {
 	text-decoration: none;
 }
 
-.lectBtn{
-width:85%;
-line-height: 100%;
-height:105%;
-border-style: none;
-background-color: #ff4d4d;
-color: white;
-font-weight: bold;
+.lectBtn {
+	width: 85%;
+	line-height: 100%;
+	height: 105%;
+	border-style: none;
+	background-color: #ff4d4d;
+	color: white;
+	font-weight: bold;
+}
+#findid{
+display: none;
 }
 
 @media screen and (min-width:1180px) {
@@ -182,7 +207,8 @@ font-weight: bold;
 					<img alt="lect" src="./imgs/lectlist.png">
 				</div>
 				<!--  이미지수정 -->
-				<form method="get" action="<%=url%>">
+				<p id="findid"><%=id %></p>
+				<form method="get" action="<%=url%>" name="f">
 					<table>
 						<tr>
 							<th>번호</th>
@@ -192,24 +218,19 @@ font-weight: bold;
 
 						</tr>
 
-						<%
-							for (int i = 0; i < list.size(); i++) {
-						%>
+						<c:forEach items="${list }" var="bean">
 						<tr class="bean">
-
 							<input type="text" readonly="readonly" hidden="hidden" name="id"
 								id="id" value="<%=id%>">
 							<input type="text" readonly="readonly" hidden="hidden"
-								name="classid" id="classid"
-								value="<%=list.get(i).getClassid()%>">
-							<td><%=list.get(i).getPriority()%></td>
-							<td><%=list.get(i).getCname()%></td>
-							<td><%=list.get(i).getDivision()%></td>
-							<td><button type="submit" class="lectBtn">수강신청</button></td>
+								name="classid" id="classid">
+							<td>${bean.priority}</td>
+							<td>${bean.cname}</td>
+							<td>${bean.division}</td>
+							<td><button type="submit" class="${bean.classid }">수강신청</button></td>
 						</tr>
-						<%
-							}
-						%>
+						
+						</c:forEach>
 					</table>
 				</form>
 			</div>

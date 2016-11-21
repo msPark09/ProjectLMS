@@ -39,6 +39,17 @@ a{
 text-decoration: none;
 color: black;
 }
+table td{
+border-bottom: 1px #ccc dotted;
+}
+.lecL{
+border-bottom: 1px #ccc dotted;
+}
+
+.lecT{
+border-top: 2px red solid;
+border-bottom: 2px red solid;
+}
 
 table th:nth-child(1){
 width: 100px; 
@@ -64,7 +75,7 @@ table tr:nth-child(4){
 height: 30px; 
 }
 table tr:nth-child(5){
-height: 300px; 
+height: 200px; 
 }
 table tr:nth-child(6){
 height: 30px; 
@@ -131,26 +142,26 @@ text-decoration: none;
 			<form action="edit.do">
 			<input type="hidden" id="proid" name="proid" value="${bean.proid }">
 			<input type="hidden" id="stuid" name="stuid" value="${bean.id }">
-			<table border="1" frame="box" rules="all">
+			<table>
 				<tr>
-					<th>강의</th>
-					<th colspan="3">${bean.proname }</th>
+					<th class="lecT">강의</th>
+					<th class="lecT" colspan="3">${bean.proname }</th>
 				</tr>
 				<tr>
-					<th colspan="2">제목</th>
+					<th class="lecL" colspan="2">제목</th>
 				</tr>
 				<tr>
-					<th colspan="2">${bean.subname }</th>
+					<td colspan="2">${bean.subname }</td>
 				</tr>
 				<tr>
-					<th colspan="4">내용</th>
+					<th class="lecL" colspan="4">내용</th>
 				</tr>
 				<tr>
-					<th colspan="4">${bean.proexp }</th>
+					<td colspan="4">${bean.proexp }</td>
 				</tr>
 				<tr>
-					<th>파일</th>
-					<th colspan="3"><a target="_blank" href="file/${bean.proren }">${bean.proorin }</a></th>
+					<th class="lecL" >파일</th>
+					<th class="lecL" colspan="3"><a target="_blank" href="file/${bean.proren }">${bean.proorin }</a></th>
 				</tr>
 			</table>
 			

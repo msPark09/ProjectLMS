@@ -59,10 +59,6 @@ a {
 		<jsp:include page="/template/menu.jsp"></jsp:include>
 
 		<div class="content row">
-			<div class="grid2 side">
-				<!-- sidemenum : pc버전 메인화면에서 노출 없음 > 메뉴 클릭 후 이동, 마이페이지등에서 노출 -->
-				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
-			</div>
 			<div class="main">
 				<!-- content start -->
 				<img alt="main" src="./imgs/main.png">

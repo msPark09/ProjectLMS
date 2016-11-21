@@ -145,7 +145,7 @@ display: none;
 		<div class="grid12">
 			<ul class="upmenu">
 				<li><a href="/HBLMS_6Class_4/introduce.jsp?introIdx=0">교육서비스</a></li>
-				<li><a href="/HBLMS_6Class_4/HBLectIntro.jsp">한빛과목및과정</a></li>
+				<li><a href="/HBLMS_6Class_4/lecintro">한빛과목및과정</a></li>
 				<li><a href="/HBLMS_6Class_4/job/jobList">고객센터</a></li>
 			</ul>
 		</div>
@@ -175,7 +175,7 @@ display: none;
 			<%for(LectureDto bean : list){ %>
 			<li><a href="/HBLMS_6Class_4/HBLectExplan.jsp?lectIdx=<%=(++cnt)%>"><%=bean.getCname() %></a></li>
 			<%} %>
-			<li><a href="/HBLMS_6Class_4/HBLectIntro.jsp">수강신청</a></li>			
+			<li><a href="/HBLMS_6Class_4/lecintro">수강신청</a></li>			
 			</ul>
 			</div>
 			<div class="grid4" id="HBLectsub3">

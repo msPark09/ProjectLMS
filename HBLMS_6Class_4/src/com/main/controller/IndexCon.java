@@ -14,9 +14,13 @@ public class IndexCon extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> sublist = new ArrayList<String>();
 		request.setAttribute("menu", list);
+		request.setAttribute("slist", sublist);
 		request.setAttribute("title", "마이페이지");
-		request.getRequestDispatcher("index.jsp").forward(request, response);	
+		
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

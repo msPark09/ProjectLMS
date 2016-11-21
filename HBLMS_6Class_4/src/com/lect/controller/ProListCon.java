@@ -32,6 +32,8 @@ public class ProListCon extends HttpServlet {
 			request.setAttribute("lectid", lectid);
 			request.setAttribute("id", id);
 			request.setAttribute("alist", list);
+			request.setAttribute("cname",(String)list.get(0).getLect());
+			request.setAttribute("teacname", (String)list.get(0).getName());
 			request.getRequestDispatcher("Student/ResultsList.jsp").forward(request, response);
 		}else{
 //			JOptionPane.showMessageDialog(null, "등록된 프로젝트가 없습니다.", "메세지", JOptionPane.ERROR_MESSAGE);

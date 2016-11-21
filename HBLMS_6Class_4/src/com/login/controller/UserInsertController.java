@@ -37,7 +37,7 @@ public class UserInsertController extends HttpServlet {
 		}
 		
 		if(result>0){
-		JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.", "메세지", JOptionPane.PLAIN_MESSAGE);
+		//JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.", "메세지", JOptionPane.PLAIN_MESSAGE);
 		response.sendRedirect("loginform.do");
 		}else{
 			System.out.println("입력오류!");

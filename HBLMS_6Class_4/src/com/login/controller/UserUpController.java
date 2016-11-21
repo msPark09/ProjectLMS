@@ -1,6 +1,8 @@
 package com.login.controller;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +18,7 @@ public class UserUpController extends HttpServlet {
 	private UpdateDao dao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.getCharacterEncoding();
 		String id=request.getParameter("id");
 		System.out.println(id);
 		String name=request.getParameter("name");
@@ -43,7 +45,7 @@ public class UserUpController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		JOptionPane.showMessageDialog(null, "수정이 완료되었습니다.", "메세지", JOptionPane.PLAIN_MESSAGE);
+		//JOptionPane.showMessageDialog(null, "수정이 완료되었습니다.", "메세지", JOptionPane.PLAIN_MESSAGE);
 		response.sendRedirect("mypage.do");
 	}
 

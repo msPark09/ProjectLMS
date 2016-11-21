@@ -15,7 +15,12 @@ List<TodoDto> list = dao.Todo();
  session.setAttribute("LOGIN", dos);
  */
  	SelectAllDao dao = new SelectAllDao();
-	List<LectureDto> list = dao.LectList();
+	List<LectureDto> list = new ArrayList<LectureDto>();
+	try{
+		list = dao.LectList();
+	}catch(Exception e){
+		
+	}
 	request.setAttribute("title", "한빛과목및과정");
 	ArrayList<String> mlist = new ArrayList<String>();
 	ArrayList<String> slist = new ArrayList<String>();
@@ -24,11 +29,9 @@ List<TodoDto> list = dao.Todo();
 		slist.add("./HBLectExplan.jsp?lectIdx="+(i+1));
 	}
 	mlist.add("수강신청");
-	slist.add("./HBLectIntro.jsp");
+	slist.add("./lecintro");
 	request.setAttribute("menu", mlist);
 	request.setAttribute("slist", slist);
-	
- 
 %>
 
 <!DOCTYPE html>
@@ -121,8 +124,8 @@ color: black;
 <h1><%String id = request.getParameter("id"); %></h1>-->
 <table class="okInserLec">
 
-	<h1>수강신청이 완료되었습니다.</h1>
-	<p>확인버튼을 눌러 수강상태를 확인하시길 바랍니다.</p>
+	<h1>확인 버튼을 누르면 수강신청이 완료됩니다.</h1>
+	<p>수강상태를 확인하시길 바랍니다.</p>
 	<tr>
 		<input type="text" name="id" value=<%=id %> hidden="hidden">
 		<input type="text" name="classid" value=<%=classid %> hidden="hidden">

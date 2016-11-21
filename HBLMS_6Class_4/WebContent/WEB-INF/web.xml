@@ -377,12 +377,20 @@
     <servlet-name>priolist</servlet-name>
     <url-pattern>/priolist</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>prioedit</servlet-name>
     <servlet-class>com.main.controller.PriorityEdit</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>prioedit</servlet-name>
     <url-pattern>/prioEdit</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>lectintro</servlet-name>
+    <servlet-class>com.add.controller.LectIntroCon</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>lectintro</servlet-name>
+    <url-pattern>/lecintro</url-pattern>
   </servlet-mapping>
 </web-app>

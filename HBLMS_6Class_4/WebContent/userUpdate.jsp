@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+
 ArrayList<String> list = (ArrayList<String>)session.getAttribute("menu");
 request.setAttribute("menu", list);
 ArrayList<String> hreList = (ArrayList<String>)session.getAttribute("slist");
@@ -20,8 +21,7 @@ request.setAttribute("title", "마이페이지");
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('.main').addClass("grid10");//main부분의 그리드 잡기
-	
+	$('.main').addClass("grid10");//main부분의 그리드 잡기	
 });
 </script>
 <SCRIPT language="javascript">
@@ -56,7 +56,11 @@ $(document).ready(function(){
         document.f2.pw.focus();
         return true;
     }else{
-     document.f2.submit();
+    	var result = window.confirm("정보를 수정하시겠습니까?");
+    	if(result){ 		
+    		 document.f2.submit();
+    	}
+    	return true;
     }
    }
    

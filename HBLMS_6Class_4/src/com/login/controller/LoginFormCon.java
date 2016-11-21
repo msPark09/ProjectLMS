@@ -16,7 +16,6 @@ public class LoginFormCon extends HttpServlet {
 		
 		list.add("강사채용");
 		list.add("교육센터위치");
-		
 		request.setAttribute("menu", list);
 		request.setAttribute("title", "로그인");
 		request.getRequestDispatcher("login/Login.jsp").forward(request, response);

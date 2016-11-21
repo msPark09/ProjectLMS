@@ -69,25 +69,23 @@ border-bottom: 2px red solid;
 }
 
 table td:nth-child(1){
-width:10%;
+width:30%;
 }
 table td:nth-child(2){
-width:20%;
+width:40%;
 }
 table td:nth-child(3){
-width:27%;
+width:15%;
 }
 table td:nth-child(4){
-width:10%;
+width:15%;
 }
-table td:nth-child(5){
-width:10%;
+.projectinfo>h2{
+margin: 10px;
 }
-table td:nth-child(6){
-width:13%;
-}
-table td:nth-child(7){
-width:10%;
+.projectinfo>h3{
+text-align: right;
+margin-right: 20px;
 }
 .jobimg{
 margin-top: 10px;
@@ -142,27 +140,25 @@ text-decoration: none;
 				<jsp:include page="/template/sidemenu.jsp"></jsp:include>
 			</div>
 			<div class="main">
+				<div class="projectinfo">
+					<h2>${cname }</h2>
+					<h3>${teacname }</h3>
+				</div>
 			<form action="listone.do">
 				<table>
 				<input type="hidden" id="lectid" name="lectid" value="${lectid }">
 				<input type="hidden" id="id" name="id" value="${id }">
 					<tr>
-						<th>강의제목</th>
 						<th>프로젝트이름</th>
 						<th>프로젝트내용</th>
 						<th>프로젝트날짜</th>
-						<th>강사명</th>
-						<th>강사아이디</th>
 						<th>과제제출</th>
 					</tr>
 					<c:forEach items="${alist }" var="bean">
 						<tr>
-							<td>${bean.lect }</td>
 							<td><a href="content.do?proid=${bean.proid }&stuid=${bean.stuid }&lectid=${bean.lectid }">${bean.proname }</a></td>
 							<td>${bean.procont }</td>
 							<td>${bean.proday }</td>
-							<td>${bean.name }</td>
-							<td>${bean.id }</td>
 							<td><a href="add.do?proid=${bean.proid }&stuid=${bean.stuid }&lectid=${bean.lectid }&lect=${bean.lect }">제출</a></td>
 						</tr>
 					</c:forEach>

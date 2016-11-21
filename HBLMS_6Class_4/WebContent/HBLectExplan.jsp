@@ -8,7 +8,12 @@
 <%@ page import="java.util.List"%>
 <%
 	SelectAllDao dao = new SelectAllDao();
-	List<LectureDto> list = dao.LectList();
+	List<LectureDto> list = new ArrayList<LectureDto>();
+	try{
+	list = dao.LectList();
+	}catch(Exception e){
+	
+	}
 	
 	request.setAttribute("title", "한빛과목및과정");
 	ArrayList<String> mlist = new ArrayList<String>();
@@ -18,7 +23,7 @@
 		slist.add("./HBLectExplan.jsp?lectIdx="+(i+1));
 	}
 	mlist.add("수강신청");
-	slist.add("./HBLectIntro.jsp");
+	slist.add("./lecintro");
 	request.setAttribute("menu", mlist);
 	request.setAttribute("slist", slist);
 	String lectIdx = request.getParameter("lectIdx");
@@ -77,13 +82,15 @@ table td:nth-child(3) {
 	width: 10%;
 }
 
-.lectInfo{
-width: 100%;
+.lectInfo {
+	width: 100%;
 }
-.lectInfo img{
-width: 90%;
-margin: 5px;
+
+.lectInfo img {
+	width: 90%;
+	margin: 5px;
 }
+
 .path {
 	margin-top: 10px;
 	text-align: right;
@@ -97,14 +104,15 @@ margin: 5px;
 	text-decoration: none;
 }
 
-.lectBtn{
-width:100%;
-height: 90%;
-line-height: 90%;
+.lectBtn {
+	width: 100%;
+	height: 90%;
+	line-height: 90%;
 }
-.lectInfo img{
-width: 90%;
-height: 90%;
+
+.lectInfo img {
+	width: 90%;
+	height: 90%;
 }
 
 @media screen and (min-width:1180px) {
@@ -126,12 +134,12 @@ height: 90%;
 	.path {
 		display: none;
 	}
-	.lectInfo{
-	height: 90%;
-}
-.lectInfo img{
-	height: 90%;
-}
+	.lectInfo {
+		height: 90%;
+	}
+	.lectInfo img {
+		height: 90%;
+	}
 }
 </style>
 <title>한빛LMS</title>
@@ -148,12 +156,14 @@ height: 90%;
 			<div class="main">
 				<div class="path">
 					<p>
-						<a href="./main">HOME</a> > <a href="./HBLectIntro.jsp">한빛과목및과정</a> > <%=list.get(idx-1).getCname() %>
+						<a href="./main">HOME</a> > <a href="./lecintro">한빛과목및과정</a>
+						>
+						<%=list.get(idx - 1).getCname()%>
 					</p>
 				</div>
 				<div class="lectInfo">
-				<!-- 과목설명 -->		
-				<jsp:include page="<%=url %>"></jsp:include>
+					<!-- 과목설명 -->
+					<jsp:include page="<%=url%>"></jsp:include>
 				</div>
 			</div>
 		</div>

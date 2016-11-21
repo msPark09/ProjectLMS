@@ -84,6 +84,12 @@ select * from student;
 select * from userlist;
 select * from test;
 
+delete from userlist where id like 'test%'
+delete from agreed where id='ull_ull'
+delete from AGREED where id='tu1_01'
+
+update userlist set pw='pw1', address='123#123#서울시#서울동' where id='stu4'
+
 select * from (select A.proid, A.classid, A.proname, A.subname, A.proexp, A.proorin, A.proren, A.id, B.testid, B.grade from project A, test B where B.id = A.id) C inner join userlist D on C.id = D.id where C.proid='P006'
 
 select * from (select a.proid, a.classid, a.proname, a.subname, a.proexp, a.proorin, a.proren, a.id, b.testid, b.grade from PROJECT A, test B where a.PROID = b.proid) c inner join userlist d on c.id=d.id where c.proname='1차자유주제'
@@ -94,6 +100,10 @@ select C.testid, C.proid, C.subname, C.proexp, C.proorin, D.name, C.id, C.grade 
 
 select A.classid,A.cname,A.statu,A.stuid,A.agreed,B.grade from  where stuid='stu1' and agreed=1) A left join test B on A.classid = B.classid and A.stuid = B.id
 select * from STUDENT b inner join class a on a.classid=b.classid where id='stu1'
+select b.classid, a.cname, a.startday, a.teacname,a.division from STUDENT b inner join class a on a.classid=b.classid where id='stu1'
+
+select proid,stuid,classid,cname,proname,procont,proday,name,id from (select A.proid, A.stuid, A.classid,A.proname, A.procont, A.proday, A.name, A.id, B.cname from PROLIST A INNER JOIN CLASS B ON A.CLASSID = B.CLASSID) where stuid='stu4' and classid='C04'
+Select count(*) As imsi From POST
 /*수강생 중에서 수강 아이디 같은거 찾고 그거랑 맞는  */
 /*insert*/
 /*강의 아이디/강의 설명/시작날짜/강사아이디/강사이름/강의목표/강의정보
@@ -250,7 +260,7 @@ insert into userlist values('stu1','pw1',1,'박미선','010-1234-1234','123#123#서�
 insert into userlist values('stu2','pw1',1,'최힘찬','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
 insert into userlist values('stu3','pw1',1,'최정웅','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
 insert into userlist values('stu4','pw1',1,'임경영','010-1234-1234','123#123#서울시#서울동','test@yopmail.com');
-select * from class where statu=0
+select * from agreed 
 /*승인아이디/수강생아이디/수강생이름/강의아이디/승인여부(승인1 미승인0) */
 insert into agreed values('Agr01','stu1','박미선','C01',0);
 insert into agreed values('Agr02','stu1','박미선','C02',0);
@@ -270,7 +280,7 @@ insert into project values('P003','C06','1차자유주제','채팅프로그램','소켓통신을
 insert into project values('P004','C06','2차DB시험','DB시험','DB시험 너무 어렵습니다.',null,null,'stu1');
 insert into project values('P005','C06','2차DB시험','DB시험재셤봐여','DB시험 너무 어렵습니다.',null,null,'stu2');
 insert into project values('P006','C07','자유주제 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu4');
-
+delete from project where proid='P006'
 insert into project values('P007','C04','[과제]자유주제 구현하기','[강아지먹이주기알람]','강아지먹이주기알람을 java를 통해 만들었습니다.','Desktop.7z','Desktop.7z','stu1');
 insert into project values('P008','C04','[과제]자유주제 구현하기','채팅프로그램','소켓통신을 이용해 쌍방향 채팅 프로그램. 카카O톡을 모방하였습니다. 공부 위주','Desktop.7z','Desktop.7z','stu2');
 insert into project values('P009','C04','[과제]자유주제 구현하기','채팅프로그램','소켓통신을 이용해 쌍방향 채팅 프로그램. 카카O톡을 모방하였습니다. 공부 위주','Desktop.7z','Desktop.7z','stu3');
@@ -279,7 +289,7 @@ insert into project values('P0011','C05','뭐든지 구현하기','반응형 웹을 만들었습
 insert into project values('P0012','C05','뭐든지 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu2');
 insert into project values('P0013','C05','뭐든지 구현하기','반응형 웹을 만들었습니다.','반응형 웹이 되는 한빛 LMS 시스템을 만들었습니다. 권한별로 잘 되네요','Desktop.7z','Desktop.7z','stu3');
 
-delete PROJECT where id='stu1'
+delete PROJECT where id='stu4'
 select * from class where statu=2 
 select * from prolist where classid='C04'
 /*C08*/

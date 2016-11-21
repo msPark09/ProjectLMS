@@ -462,44 +462,46 @@ public class SelectAllDao {
 		return list;
 	}
 
-//	public List<ProlistDto> StuLectList(String id) {
-//
-////		String sql = "select A.classid,A.cname,A.statu,A.stuid,A.agreed,B.grade from (";
-////		sql += "select classid,cname,statu,stuid,agreed from (";
-////		sql += "select A.classid,A.cname,A.statu,B.stuid,B.agreed from class A inner join agreed B on A.classid = B.lectid";
-////		sql += ") where stuid=? and agreed=1";
-////		sql += ") A left join test B on A.classid = B.classid and A.stuid = B.id";
-//		String sql="select b.id, b.classid,  from STUDENT b inner join class a on a.classid=b.classid where id=?";
-//
-//		List<ProlistDto> list = new ArrayList<ProlistDto>();
-//
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, id);
-//			rs = pstmt.executeQuery();
-//			// System.out.println(rs);
-//			while (rs.next()) {
-////				list.add(new ProlistDto(rs.getString("cname"), rs
-////						.getInt("grade"), rs.getString("classid"), rs
-////						.getString("stuid"), rs.getString("statu")));
-//				ProlistDto dto = new ProlistDto();
-//				dto.setLect(rs.getString("cname"));
-//				dto.setLectid(rs.getString("classid"));
-//				dto.set
-//				list.add()
-//			}
-//			if (rs != null)
-//				rs.close();
-//			if (pstmt != null)
-//				pstmt.close();
-//			if (conn != null)
-//				conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//
-//		return list;
-//	}
+	public List<LectureDto> StuLectList(String id) throws Exception {
+
+//		String sql = "select A.classid,A.cname,A.statu,A.stuid,A.agreed,B.grade from (";
+//		sql += "select classid,cname,statu,stuid,agreed from (";
+//		sql += "select A.classid,A.cname,A.statu,B.stuid,B.agreed from class A inner join agreed B on A.classid = B.lectid";
+//		sql += ") where stuid=? and agreed=1";
+//		sql += ") A left join test B on A.classid = B.classid and A.stuid = B.id";
+		String sql="select b.classid, a.cname, a.startday, a.teacname,a.division from STUDENT b inner join class a on a.classid=b.classid where id=?";
+
+		List<LectureDto> list = new ArrayList<LectureDto>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			// System.out.println(rs);
+			while (rs.next()) {
+//				list.add(new ProlistDto(rs.getString("cname"), rs
+//						.getInt("grade"), rs.getString("classid"), rs
+//						.getString("stuid"), rs.getString("statu")));
+				LectureDto dto = new LectureDto();
+				dto.setClassid(rs.getString("classid"));
+				dto.setCname(rs.getString("cname"));
+				dto.setStartday(rs.getDate("startday"));
+				dto.setTeacname(rs.getString("teacname"));
+				dto.setDivision(rs.getString("division"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{			
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return list;
+	}
 
 	// 우선순위 불러오기
 	public List<LectureDto> Todo() throws SQLException {

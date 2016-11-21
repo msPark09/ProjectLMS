@@ -68,11 +68,16 @@ border-bottom: 2px red solid;
 }
 
 table td:nth-child(1){
-width:70%;
+width:40%;
 }
 table td:nth-child(2){
-width:30%;
-text-align: left;
+width:20%;
+}
+table td:nth-child(3){
+width:20%;
+}
+table td:nth-child(4){
+width:20%;
 }
 .jobimg{
 margin-top: 10px;
@@ -131,15 +136,20 @@ text-decoration: none;
 				<table>
 				<input type="hidden" id="id" name="id" value="${id }"/>
 					<tr>
-						<th>강의제목</th>
-						<th>성적</th>
+						<th>강의명</th>
+						<th>강 사</th>
+						<th>구 분</th>						
+						<th>수강일</th>
 					</tr>
 					<c:forEach items="${stlist }" var="bean">
 						<tr>
-							<td><a href="List.do?lectid=${bean.lectid }&id=${bean.stuid }">${bean.name }</a></td>
-							<td>${bean.grade }</td>
+							<td><a href="List.do?lectid=${bean.classid }&id=${id }">${bean.cname }</a></td>
+							<td>${bean.teacname}</td>
+							<td>${bean.division}</td>
+							<td>${bean.startday}</td>
 						</tr>
 					</c:forEach>
+					<tr><td colspan="4">${emptyList }</td></tr>
 				</table>
 				<p><a href="#">1</a></p>
 				<select name="op">

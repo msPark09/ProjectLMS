@@ -47,7 +47,7 @@ public class LectInserCon extends HttpServlet {
 		if(result>0){
 		//RequestDispatcher rd = request.getRequestDispatcher("/.jsp");
 		//rd.forward(request, response);
-			response.sendRedirect("HBLectIntro.jsp");
+			response.sendRedirect("lecintro");
 		}else{
 			System.out.println("입력실패");
 			response.sendRedirect("error.jsp");
